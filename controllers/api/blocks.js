@@ -41,11 +41,11 @@ const getBlocks = async (req, res, next) => {
         res.status(400).json({ msg: error.message })
     }
 }
-const respondWithTimes = (req, res) => {
+const respondWithBlocks = (req, res) => {
     res.json(res.locals.data.times)
 }
 
-const respondWithTime = (req, res) => {
+const respondWithBlock = (req, res) => {
     res.json(res.locals.data.block)
 }
 module.exports = {
@@ -53,6 +53,6 @@ module.exports = {
     updateBlock,
     getBlocks,
     createBlock,
-    respondWithTime,
-    respondWithTimes
+    respondWithBlock,
+    respondWithBlocks
 }
