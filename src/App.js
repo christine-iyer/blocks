@@ -1,6 +1,6 @@
 import { useState , useEffect} from 'react'
 import SortableList from './components/SortableList';
-import CardBody from './components/CardBody';
+// import CardBody from './components/CardBody';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -33,7 +33,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-       <SortableList setBlocks={setBlocks}/>
+       <SortableList blocks={blocks} setBlocks={setBlocks}/>
         
       
 
