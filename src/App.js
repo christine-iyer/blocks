@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState , useEffect} from 'react'
 import SortableList from './components/SortableList';
 import CardBody from './components/CardBody';
 import './App.css';
@@ -33,7 +33,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-       <SortableList />
+       <SortableList setBlocks={setBlocks}/>
         
       
 
