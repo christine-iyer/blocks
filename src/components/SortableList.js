@@ -1,3 +1,5 @@
+import logo from './logo.svg';
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import {
@@ -9,43 +11,38 @@ import {
   SortableContext,
   verticalListSortingStrategy
 } from "@dnd-kit/sortable";
-import { useState } from 'react';
+import {useState} from 'react';
 import { SortableItem } from './SortableItem';
 
-function SortableList({ blocks, setBlocks }) {
-  const [languages, setLanguages] = useState(["JavaScript", "Python", "TypeScript"]);
+function App() {
+  const [languages, setLanguages ] = useState(["JavaScript", "Python", "TypeScript"]);
 
   return (
     <DndContext
       collisionDetection={closestCenter}
       onDragEnd={handleDragEnd}
     >
-      <Container className="p-3" style={{ "width": "50%" }} align="center">
+      <Container className="p-3" style={{"width": "50%"}} align="center">
         <h3>The best programming languages!</h3>
         <SortableContext
-          items={blocks.map((block) => block._id)}
+          items={languages}
           strategy={verticalListSortingStrategy}
         >
-          <ul>
-            {blocks.map(block => (<SortableItem key={block._id} id={block._id}>
-                                    <img src={block.img} alt={block.alt}/>
-                                  </SortableItem> ))}
-          </ul>
+          {/* We need components that use the useSortable hook */}
+          {languages.map(language => <SortableItem key={language} id={language}/>)}
         </SortableContext>
       </Container>
     </DndContext>
-
-
   );
 
   function handleDragEnd(event) {
     console.log("Drag end called");
-    const { active, over } = event;
+    const {active, over} = event;
     console.log("ACTIVE: " + active.id);
     console.log("OVER :" + over.id);
 
-    if (active.id !== over.id) {
-      setBlocks((items) => {
+    if(active.id !== over.id) {
+      setLanguages((items) => {
         const activeIndex = items.indexOf(active.id);
         const overIndex = items.indexOf(over.id);
         console.log(arrayMove(items, activeIndex, overIndex));
@@ -53,9 +50,9 @@ function SortableList({ blocks, setBlocks }) {
         // items: [2, 3, 1]   0  -> 2
         // [1, 2, 3] oldIndex: 0 newIndex: 2  -> [2, 3, 1] 
       });
-
+      
     }
   }
 }
 
-export default SortableList;
+export default App;
