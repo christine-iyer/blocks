@@ -1,7 +1,7 @@
 import { useState , useEffect} from 'react'
-import SortableItem from './components/SortableItem';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CreateBlock from './components/CreateBlock';
 
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
       <header className="App-header">
       
         
-      <SortableItem />
+<CreateBlock />
 
         
       </header>
