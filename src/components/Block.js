@@ -10,7 +10,7 @@ export default function Block ({
   const inputRef = useRef(null)
   return (
     <>
-      <Card style={{width: '50%', padding:'5%', margin: '5%'}}>
+      <Card style={{width: '20%', height: '10%', padding:'1%', margin: '1%'}}>
         <h4 onClick={() => setShowInput(!showInput)}>{block.alt}</h4>
         <input
           ref={inputRef}

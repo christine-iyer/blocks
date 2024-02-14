@@ -6,7 +6,7 @@ export default function BlockList ({
   deleteBlock
 }) {
   return (
-    <ul>
+    <ul style={{display:"flex",flexWrap:"wrap", margin: '1rem'}}>
       {
             blocks.length
               ? blocks.map(block => (

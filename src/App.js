@@ -107,7 +107,7 @@ function App() {
           updateBlock={updateBlock}
           />
 
-          <List setBlocks={setBlocks}/>
+          <List setBlocks={setBlocks} />
           
     </div>
   );
