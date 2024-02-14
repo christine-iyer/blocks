@@ -1,3 +1,4 @@
+import {Form, Button} from 'react-bootstrap';
 
 export default function CreateBlock ({
   createBlock,
@@ -8,7 +9,7 @@ export default function CreateBlock ({
     <>
       <h2>Create A Block</h2>
       <div className='container'>
-        <form 
+        <Form 
           className='form'
           onSubmit={(e) => {
             e.preventDefault()
@@ -16,11 +17,11 @@ export default function CreateBlock ({
           }}
         >
           <div>
-          <label>Title<input type='text' value={block.alt} name='alt' onChange={handleChange} placeholder='Title' /></label>
-          <label>Url<input type='text' value={block.img} name='img' onChange={handleChange} placeholder='URL' /></label>
+          <Form.Control type='textarea' rows={3} value={block.alt} name='alt' onChange={handleChange} placeholder='Title' />
+          <Form.Label>Url<Form.Control type='text' value={block.img} name='img' onChange={handleChange} placeholder='URL' /></Form.Label>
           </div>
           <input className='button' type='submit' value='Create Block' />
-        </form>
+        </Form>
       </div>
      
     </>
