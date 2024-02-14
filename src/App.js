@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CreateBlock from './components/CreateBlock';
 import BlockList from './components/BlockList';
-import List from './components/List'
+
 
 
 
@@ -107,7 +107,7 @@ function App() {
           updateBlock={updateBlock}
           />
 
-          <List setBlocks={setBlocks} />
+        
           
     </div>
   );
