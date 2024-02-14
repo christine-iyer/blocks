@@ -11,7 +11,7 @@ export default function Block ({
   return (
     <>
       <Card style={{width: '20%', height: '10%', padding:'1%', margin: '1%'}}>
-        <h4 onClick={() => setShowInput(!showInput)}>{block.alt}</h4>
+        <Card.Title onClick={() => setShowInput(!showInput)}>{block.alt}</Card.Title>
         <input
           ref={inputRef}
           style={{ display: showInput ? 'block' : 'none' }}
@@ -25,7 +25,7 @@ export default function Block ({
           }}
           defaultValue={block.alt}
         />
-        <img src={block.img} alt={block.alt} rel='noreferrer'></img>
+        <Card.Img src={block.img} alt={block.alt} rel='noreferrer'></Card.Img>
         <Button
         style={{margin: '2px'}}
         className='iconTrash' 
