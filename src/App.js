@@ -1,9 +1,19 @@
-import { useState , useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
 import CreateBlock from './components/CreateBlock';
 import BlockList from './components/BlockList';
-
+import { SortableItem } from './components/SortableItem';
+import {
+  DndContext,
+  closestCenter
+} from "@dnd-kit/core";
+import {
+  arrayMove,
+  SortableContext,
+  verticalListSortingStrategy
+} from "@dnd-kit/sortable";
 
 
 
@@ -14,7 +24,7 @@ function App() {
   })
   const [blocks, setBlocks] = useState([])
   const [foundBlocks, setFoundBlocks] = useState(null)
-
+  const [languages, setLanguages] = useState(["JavaScript", "Python", "TypeScript"]);
   const handleChange = (event) => {
     setBlock({ ...block, [event.target.name]: event.target.value })
   }
@@ -74,14 +84,14 @@ function App() {
       console.error(error)
     }
   }
- 
+
   const listBlocks = async () => {
     try {
       const response = await fetch('/api/blocks', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-         
+
         }
       })
       const data = await response.json()
@@ -95,22 +105,53 @@ function App() {
   }, [foundBlocks])
   return (
     <div className="App">
-
-  
-      <CreateBlock style={{ height: '50%', margin: "5%" }}
+      <div>
+        <CreateBlock style={{ height: '50%', margin: "5%" }}
           createBlock={createBlock}
           block={block}
-          handleChange={handleChange}/>
-          <BlockList 
+          handleChange={handleChange} />
+
+        <BlockList
           blocks={blocks}
           deleteBlock={deleteBlock}
-          updateBlock={updateBlock}
-          />
+          updateBlock={updateBlock}/>
+      </div>
+      <div>
+        <DndContext
+        collisionDetection={closestCenter}
+        onDragEnd={handleDragEnd}>
+          <Container className="p-3" style={{"width": "50%"}} align="center" >
+            <h3> Titile</h3>
+            <SortableContext items={languages} strategy={verticalListSortingStrategy}>
+{languages.map(language=><SortableItem key={language} id={language}/>)}
+            </SortableContext>
+          </Container>
 
-        
-          
+
+        </DndContext>
+
+      </div>
     </div>
-  );
+  )
+function handleDragEnd(event){
+  console.log("Drag End")
+  const {active,over}=event
+  console.log('active'+ active.id)
+  console.log('over' + over.id)
+  if(active.id !== over.id) {
+    setLanguages((items) => {
+      const activeIndex = items.indexOf(active.id);
+      const overIndex = items.indexOf(over.id);
+      console.log(arrayMove(items, activeIndex, overIndex));
+      return arrayMove(items, activeIndex, overIndex);
+      // items: [2, 3, 1]   0  -> 2
+      // [1, 2, 3] oldIndex: 0 newIndex: 2  -> [2, 3, 1] 
+    });
+    
+  }
+
+
+}
 }
 
 export default App;

@@ -18,8 +18,8 @@ export default function Block ({
           type='text'
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
-              const title = inputRef.current.value
-              updateBlock(block._id, { title })
+              const alt = inputRef.current.value
+              updateBlock(block._id, { alt: alt })
               setShowInput(false)
             }
           }}
@@ -35,6 +35,8 @@ export default function Block ({
          
         </Button>
       </Card>
+      
+
     </>
   )
 }
