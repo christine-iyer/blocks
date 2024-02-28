@@ -33,14 +33,7 @@ export default function Block ({
 
 
 
-        <Button
-        style={{margin: '2px'}}
-        className='iconTrash' 
-        
-          onClick={() => deleteBlock(block._id)}
-        > Delete
-         
-        </Button>
+       
       </Card>
       
 

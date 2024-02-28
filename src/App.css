@@ -3,7 +3,7 @@
   font-family: 'bradley hand' ;
   background-color: #edd8c3;
   background-color: rgba( 224,175,155,0.7);
-  background-color: rgba( 214,186,172,1);
+  background-color: #ff5500;
 }
 
 .App-logo {
@@ -22,9 +22,9 @@
 
 /* CSS */
 .button-32 {
-  background-color: #fff000;
+  background-color: #ffee004e;
   border-radius: 12px;
-  color: #000;
+  color: #ff5500 ;
   cursor: pointer;
   font-weight: bold;
   padding: 10px 15px;
