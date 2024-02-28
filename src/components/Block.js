@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import '../App.css'
 export default function Block ({
   block,
   updateBlock,
@@ -26,6 +27,12 @@ export default function Block ({
           defaultValue={block.alt}
         />
         <Card.Img src={block.img} alt={block.alt} rel='noreferrer'></Card.Img>
+
+        <button className="button-32"  onClick={() => deleteBlock(block._id)}>Coupe</button>
+
+
+
+
         <Button
         style={{margin: '2px'}}
         className='iconTrash' 
