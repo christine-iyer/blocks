@@ -28,7 +28,7 @@ export default function Block ({
         />
         <Card.Img src={block.img} alt={block.alt} rel='noreferrer'></Card.Img>
 
-        <button className="button-32"  onClick={() => deleteBlock(block._id)}>Coupe</button>
+        <button style={{color: 'red'}}className="button-32"  onClick={() => deleteBlock(block._id)}>X</button>
 
 
 
