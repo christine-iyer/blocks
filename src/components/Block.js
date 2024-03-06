@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react'
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
 import '../App.css'
 export default function Block ({
   block,
