@@ -21,8 +21,11 @@ export function SortableItem(props) {
 
     return (
         <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-            <Card body className="m-3">{props.id}</Card>
-            {/* <Card body className="m-3">{props.id}, {props.value}</Card> */}
+            <Card body className="m-3" style={{width:'30%'}} key={props.id}>{props.id}
+                {/* <Card.Img src={props.img} alt={props.alt}></Card.Img> */}
+            </Card>
+          {/* <Card.Img body className="m-3">{props.id}, {props.img}, {props.alt}</Card.Img>  */}
+          
         </div>
     )
 }

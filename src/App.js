@@ -123,8 +123,8 @@ function App() {
           <Container className="p-3" style={{"width": "50%"}} align="center" >
             <h3> Titile</h3>
             <SortableContext items={languages} strategy={verticalListSortingStrategy}>
-{languages.map(language=><SortableItem key={language} id={language}/>)}
-{/* {abcs.map(({id, value}) => <SortableItem key={id} id={id} value={value} />)} */}
+ {languages.map(language=><SortableItem key={language} id={language}/>)} 
+{/* {blocks.map(({id, img, alt}) => <SortableItem key={id} id={id} img={img} alt={alt} />)} */}
             </SortableContext>
           </Container>
 
