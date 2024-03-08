@@ -124,6 +124,7 @@ function App() {
             <h3> Titile</h3>
             <SortableContext items={languages} strategy={verticalListSortingStrategy}>
 {languages.map(language=><SortableItem key={language} id={language}/>)}
+{/* {abcs.map(({id, value}) => <SortableItem key={id} id={id} value={value} />)} */}
             </SortableContext>
           </Container>
 
@@ -142,10 +143,10 @@ function handleDragEnd(event){
     setLanguages((items) => {
       const activeIndex = items.indexOf(active.id);
       const overIndex = items.indexOf(over.id);
+      //        const activeIndex = items.findIndex(({ id }) => id ===  active.id);
+       // const overIndex = items.findIndex(({ id }) => id ===  over.id);
       console.log(arrayMove(items, activeIndex, overIndex));
       return arrayMove(items, activeIndex, overIndex);
-      // items: [2, 3, 1]   0  -> 2
-      // [1, 2, 3] oldIndex: 0 newIndex: 2  -> [2, 3, 1] 
     });
     
   }
