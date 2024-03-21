@@ -3,8 +3,7 @@ import {CSS} from "@dnd-kit/utilities";
 import Card from 'react-bootstrap/Card';
 
 export function SortableItem(props) {
-    // props.id
-    // JavaScript
+
 
     const {
         attributes,
