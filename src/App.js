@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
-import CreateBlock from './components/CreateBlock';
-import BlockList from './components/BlockList';
+import CreateHaiku from './components/CreateHaiku';
+import HaikuList from './components/HaikuList';
 import { SortableItem } from './components/SortableItem';
 import {
   DndContext,
@@ -18,57 +18,87 @@ import {
 
 
 function App() {
-  const [block, setBlock] = useState({
-    alt: '',
-    img: ''
+  const [haiku, setHaiku] = useState({
+    
+    author: '',
+    one: '',
+    two: '',
+    three: '',
+    like: 0
   })
-  const [blocks, setBlocks] = useState([])
-  const [foundBlocks, setFoundBlocks] = useState(null)
+  const [haikus, setHaikus] = useState([])
+  const [foundHaikus, setFoundHaikus] = useState(null)
   const [languages, setLanguages] = useState(["JavaScript", "Python", "TypeScript"]);
   const handleChange = (event) => {
-    setBlock({ ...block, [event.target.name]: event.target.value })
+    setHaiku({ ...haiku, [event.target.name]: event.target.value })
   }
-
-  const createBlock = async () => {
+  const likeHaiku = async (id) => {
     try {
-      const response = await fetch('/api/blocks', {
+      const index = haikus.findIndex((haiku) => haiku._id === id)
+      const haikusCopy = [...haikus]
+      const subject = haikusCopy[index]
+      subject.like = subject.like + 1
+      const response = await fetch(`/api/haikus/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(subject)
+      })
+      const likedHaiku = await response.json()
+      const likedHaikusCopy = [likedHaiku, ...haikus]
+
+      setHaikus(likedHaikusCopy)
+      setHaikus(haikusCopy)
+    
+
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  const createHaiku = async () => {
+    try {
+      const response = await fetch('/api/haikus', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ ...block })
+        body: JSON.stringify({ ...haiku })
       })
       const data = await response.json()
-      setBlocks([data, ...blocks])
+      setHaikus([data, ...haikus])
     } catch (error) {
       console.error(error)
     } finally {
-      setBlock({
-        alt: '',
-        img: ''
+      setHaiku({
+        author: '',
+        one: '',
+        two: '',
+        three: '', 
+        like:0
       })
     }
   }
-  const deleteBlock = async (id) => {
+  const deleteHaiku = async (id) => {
     try {
-      const response = await fetch(`/api/blocks/${id}`, {
+      const response = await fetch(`/api/haikus/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
         }
       })
       const data = await response.json()
-      const blocksCopy = [...blocks]
-      const index = blocksCopy.findIndex(block => id === block._id)
-      blocksCopy.splice(index, 1)
-      setBlocks(blocksCopy)
+      const haikusCopy = [...haikus]
+      const index = haikusCopy.findIndex(haiku => id === haiku._id)
+      haikusCopy.splice(index, 1)
+      setHaikus(haikusCopy)
     } catch (error) {
       console.error(error)
     }
   }
-  const updateBlock = async (id, updatedData) => {
+  const updateHaiku = async (id, updatedData) => {
     try {
-      const response = await fetch(`/api/blocks/${id}`, {
+      const response = await fetch(`/api/haikus/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -76,83 +106,77 @@ function App() {
         body: JSON.stringify(updatedData)
       })
       const data = await response.json()
-      const blocksCopy = [...blocks]
-      const index = blocksCopy.findIndex(block => id === block._id)
-      blocksCopy[index] = { ...blocksCopy[index], ...updatedData }
-      setBlocks(blocksCopy)
+      const haikusCopy = [...haikus]
+      const index = haikusCopy.findIndex(haiku => id === haiku._id)
+      haikusCopy[index] = { ...haikusCopy[index], ...updatedData }
+      setHaikus(haikusCopy)
     } catch (error) {
       console.error(error)
     }
   }
 
-  const listBlocks = async () => {
+  const listHaikus = async () => {
     try {
-      const response = await fetch('/api/blocks', {
+      const response = await fetch('/api/haikus', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-
         }
       })
       const data = await response.json()
-      setBlocks(data)
+      setHaikus(data)
     } catch (error) {
       console.error(error)
     }
   }
   useEffect(() => {
-    listBlocks()
-  }, [foundBlocks])
+    listHaikus()
+  }, [foundHaikus])
   return (
     <div className="App">
       <div>
-        <CreateBlock style={{ height: '50%', margin: "5%" }}
-          createBlock={createBlock}
-          block={block}
+        <CreateHaiku style={{ height: '50%', margin: "5%" }}
+          createHaiku={createHaiku}
+          haiku={haiku}
           handleChange={handleChange} />
 
-        <BlockList
-          blocks={blocks}
-          deleteBlock={deleteBlock}
-          updateBlock={updateBlock}/>
+        <HaikuList
+          haikus={haikus}
+          deleteHaiku={deleteHaiku}
+          updateHaiku={updateHaiku} 
+          likeHaiku={likeHaiku}/>
       </div>
       <div>
         <DndContext
-        collisionDetection={closestCenter}
-        onDragEnd={handleDragEnd}>
-          <Container className="p-3" style={{"width": "50%"}} align="center" >
+          collisionDetection={closestCenter}
+          onDragEnd={handleDragEnd}>
+          <Container className="p-3" style={{ "width": "50%" }} align="center" >
             <h3> Titile</h3>
             <SortableContext items={languages} strategy={verticalListSortingStrategy}>
- {languages.map(language=><SortableItem key={language} id={language}/>)} 
-{/* {blocks.map(({id, img, alt}) => <SortableItem key={id} id={id} img={img} alt={alt} />)} */}
+              {languages.map(language => <SortableItem key={language} id={language} />)}
+              {/* {haikus.map(({id, img, alt}) => <SortableItem key={id} id={id} img={img} alt={alt} />)} */}
             </SortableContext>
           </Container>
-
-
         </DndContext>
-
       </div>
     </div>
   )
-function handleDragEnd(event){
-  console.log("Drag End")
-  const {active,over}=event
-  console.log('active'+ active.id)
-  console.log('over' + over.id)
-  if(active.id !== over.id) {
-    setLanguages((items) => {
-      const activeIndex = items.indexOf(active.id);
-      const overIndex = items.indexOf(over.id);
-      //        const activeIndex = items.findIndex(({ id }) => id ===  active.id);
-       // const overIndex = items.findIndex(({ id }) => id ===  over.id);
-      console.log(arrayMove(items, activeIndex, overIndex));
-      return arrayMove(items, activeIndex, overIndex);
-    });
-    
+  function handleDragEnd(event) {
+    console.log("Drag End")
+    const { active, over } = event
+    console.log('active' + active.id)
+    console.log('over' + over.id)
+    if (active.id !== over.id) {
+      setLanguages((items) => {
+        const activeIndex = items.indexOf(active.id);
+        const overIndex = items.indexOf(over.id);
+        //        const activeIndex = items.findIndex(({ id }) => id ===  active.id);
+        // const overIndex = items.findIndex(({ id }) => id ===  over.id);
+        console.log(arrayMove(items, activeIndex, overIndex));
+        return arrayMove(items, activeIndex, overIndex);
+      });
+    }
   }
-
-
-}
 }
 
 export default App;
