@@ -4,7 +4,8 @@ export default function HaikuList ({
   haikus,
   updateHaiku,
   deleteHaiku,
-  likeHaiku
+  likeHaiku, 
+  commentHaiku
 }) {
   return (
     <ul style={{display:"flex",flexWrap:"wrap", margin: '1rem'}}>
@@ -17,6 +18,7 @@ export default function HaikuList ({
                   updateHaiku={updateHaiku}
                   deleteHaiku={deleteHaiku}
                   likeHaiku={likeHaiku}
+                  commentHaiku={commentHaiku}
                 />
               ))
               : <>

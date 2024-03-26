@@ -23,7 +23,9 @@ function App() {
     one: '',
     two: '',
     three: '',
-    like: 0
+    title: '',
+    like: 0,
+    comment: ''
   })
   const [haikus, setHaikus] = useState([])
   const [foundHaikus, setFoundHaikus] = useState(null)
@@ -51,7 +53,9 @@ function App() {
         one: '',
         two: '',
         three: '',
-        like: 0
+        title: '',
+        like: 0, 
+        comment: ''
       })
     }
   }
@@ -61,6 +65,33 @@ function App() {
       const haikusCopy = [...haikus]
       const subject = haikusCopy[index]
       subject.like = subject.like + 1
+      const response = await fetch(`/api/haikus/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(subject)
+      })
+      const likedHaiku = await response.json()
+      const likedHaikusCopy = [likedHaiku, ...haikus]
+      setHaikus(likedHaikusCopy)
+      setHaikus(haikusCopy)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  const commentHaiku = async (id) => {
+    try {
+      const index = haikus.findIndex((haiku) => haiku._id === id)
+      const haikusCopy = [...haikus]
+      const subject = haikusCopy[index]
+      subject.comment = subject.comment + 1
+    //   const completeTodo = (id, e) => {
+    //     const todosCopy = [...todos]
+    //     const indexOfTodo = todosCopy.findIndex((i) => i.id === id )
+    //     todosCopy[indexOfTodo].completed = !todosCopy[indexOfTodo].completed
+    //     setTodos(todosCopy)
+    // }
       const response = await fetch(`/api/haikus/${id}`, {
         method: 'PUT',
         headers: {
@@ -129,6 +160,12 @@ function App() {
   useEffect(() => {
     listHaikus()
   }, [foundHaikus])
+
+
+  // if the title field is empty, create a title. The title will be derived an array that contains all the words in the lines. They get jumbled together and then the first two are chosen.
+  // const createTitle = async (title) => {}
+
+
   return (
     <div className="App">
       <div>

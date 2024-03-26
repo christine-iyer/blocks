@@ -1,6 +1,6 @@
-import {Form} from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 
-export default function CreateHaiku ({
+export default function CreateHaiku({
   createHaiku,
   haiku,
   handleChange
@@ -9,7 +9,7 @@ export default function CreateHaiku ({
     <>
       <h2>Create A Haiku</h2>
       <div className='container'>
-        <Form 
+        <Form
           className='form'
           onSubmit={(e) => {
             e.preventDefault()
@@ -17,24 +17,22 @@ export default function CreateHaiku ({
           }}
         >
           <div>
-          <Form.Select aria-label="Default select example" value={haiku.author} onChange={handleChange} name="author">
-    <option>Select an option from this select menu</option>
-    <option value="chris">Chris</option>
-    <option value="laura">Laura</option>
-    <option value="leah">Leah</option>
-    <option value="paul">Paul</option>
-  </Form.Select>
-
-          <Form.Control type='textarea' rows={3} value={haiku.one} name='one' onChange={handleChange} placeholder='Line 1' />
-          <Form.Control type='textarea' rows={3} value={haiku.two} name='two' onChange={handleChange} placeholder='Line 2' />
-          <Form.Control type='textarea' rows={3} value={haiku.three} name='three' onChange={handleChange} placeholder='Line 3' />
-
-         
+            <Form.Select aria-label="Default select example" value={haiku.author} onChange={handleChange} name="author">
+              <option>Author</option>
+              <option value="chris">Chris</option>
+              <option value="laura">Laura</option>
+              <option value="leah">Leah</option>
+              <option value="paul">Paul</option>
+            </Form.Select>
+            <Form.Control type='text' value={haiku.one} name='one' onChange={handleChange} placeholder='Line 1' />
+            <Form.Control type='text' value={haiku.two} name='two' onChange={handleChange} placeholder='Line 2' />
+            <Form.Control type='text' value={haiku.three} name='three' onChange={handleChange} placeholder='Line 3' />
+            <Form.Control type='text' value={haiku.title} name='title' onChange={handleChange} placeholder='Optional title' />
           </div>
           <input className='button' type='submit' value='Create Haiku' />
         </Form>
       </div>
-     
+
     </>
   )
 }

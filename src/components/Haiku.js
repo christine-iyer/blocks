@@ -11,40 +11,39 @@ export default function Haiku({
   const [showB, setShowB] = useState(false)
   const [showC, setShowC] = useState(false)
   const [showD, setShowD] = useState(false)
+  const [showE, setShowE] = useState(false)
   const inputRefA = useRef(null)
   const inputRefB = useRef(null)
   const inputRefC = useRef(null)
   const inputRefD = useRef(null)
+  const inputRefE = useRef(null)
   return (
     <>
-      <Card style={{ width: '20%', height: '10%', padding: '1%', margin: '1%' }}>
-        <Card.Title>Haiku</Card.Title>
-        <Card.Text onClick={() => setShowA(!showA)}>{haiku.author}</Card.Text>
+      <Card style={{ width: '20%', height: '10%', padding: '1%', margin: '1%', textAlign: 'left' }}>
+        <Card.Title onClick={() => setShowE(!showE)}>{haiku.title}</Card.Title>
         <input
-        ref={inputRefA}
-        type='text'
-         
-          style={{ display: showA ? 'haiku' : 'none' }}
-          
+          ref={inputRefE}
+          style={{ display: showE ? 'block' : 'none' }}
+          type='text'
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
-              // e.preventDefault()
-              const author = inputRefA.current.value
-              updateHaiku(haiku._id, { author: author })
-              setShowA(false)
+              const title = inputRefE.current.value
+              updateHaiku(haiku._id, { title: title });
+              setShowE(false)
             }
           }}
-          defaultValue={haiku.author}
+          defaultValue={haiku.title}
         />
-        <Card.Text onClick={() => setShowB(!showB)}>{haiku.one}</Card.Text>
+
+        <Card.Text className="text" onClick={() => setShowB(!showB)}>{haiku.one}</Card.Text>
         <input
           ref={inputRefB}
-          style={{ display: showB ? 'haiku' : 'none' }}
+          style={{ display: showB ? 'block' : 'none' }}
           type='text'
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
               const one = inputRefB.current.value
-              updateHaiku(haiku._id, { one: e.target.value });
+              updateHaiku(haiku._id, { one: one });
               setShowB(false)
             }
           }}
@@ -53,7 +52,7 @@ export default function Haiku({
         <Card.Text onClick={() => setShowC(!showC)}>{haiku.two}</Card.Text>
         <input
           ref={inputRefC}
-          style={{ display: showC ? 'haiku' : 'none' }}
+          style={{ display: showC ? 'block' : 'none' }}
           type='text'
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
@@ -64,12 +63,10 @@ export default function Haiku({
           }}
           defaultValue={haiku.two}
         />
-
-        {/* <Card.Img src={haiku.img} alt={haiku.alt} rel='noreferrer'></Card.Img> */}
-        <Card.Text onClick={() => setShowD(!showD)}>{haiku.three}</Card.Text>
+        <Card.Text className="texty" onClick={() => setShowD(!showD)}>{haiku.three}</Card.Text>
         <input
           ref={inputRefD}
-          style={{ display: showD ? 'haiku' : 'none' }}
+          style={{ display: showD ? 'block' : 'none' }}
           type='text'
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
@@ -80,33 +77,27 @@ export default function Haiku({
           }}
           defaultValue={haiku.three}
         />
-
-        {/* <Card.Text onClick={() => setShowInput(!showInput)}> {haiku.author} </Card.Text>
-        <input
+        <span><p onClick={() => setShowA(!showA)}>by {haiku.author}</p> <input
           ref={inputRefA}
-          style={{ display: showInput ? 'haiku' : 'none' }}
           type='text'
+          style={{ display: showA ? 'block' : 'none' }}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
               const author = inputRefA.current.value
               updateHaiku(haiku._id, { author: author })
-              setShowInput(false)
+              setShowA(false)
             }
           }}
           defaultValue={haiku.author}
-        /> */}
-        <p>posted on {haiku.createdAt} by {haiku.author}</p>
+        /><p style={{
+          display: "flex", alignItems: "center",
+          position: "relative", zIndex: 1
+        }}> {new Date(haiku.updatedAt).toLocaleDateString()}  </p>
+        </span>
         <button style={{ color: 'red' }} className="button-32" onClick={() => deleteHaiku(haiku._id)}>X</button>
-        <button style={{ 'fontStyle': 'italic' }} className="btn btn-outline-warning" onClick={() => likeHaiku(haiku._id)}> {haiku.like}</button>
-
-
-
-
-
-
+        <button style={{ 'fontStyle': 'italic' , 'width':'20%', 'display':'inlineBlock'}} className="btn btn-outline-warning" onClick={() => likeHaiku(haiku._id)}>♥️{haiku.like}</button>
+        <button style={{ 'fontStyle': 'italic' , 'width':'20%', 'display':'inlineBlock'}} className="btn btn-outline-warning" onClick={() => likeHaiku(haiku._id)}>{haiku.comment}</button>
       </Card>
-
-
     </>
   )
 }
