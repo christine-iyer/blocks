@@ -20,7 +20,7 @@ export default function Haiku({
   return (
     <>
       <Card style={{ width: '20%', height: '10%', padding: '1%', margin: '1%', textAlign: 'left' }}>
-        <Card.Title onClick={() => setShowE(!showE)}>{haiku.title}</Card.Title>
+        <Card.Title onClick={() => setShowE(!showE)}> T {haiku.title}</Card.Title>
         <input
           ref={inputRefE}
           style={{ display: showE ? 'block' : 'none' }}
@@ -49,7 +49,7 @@ export default function Haiku({
           }}
           defaultValue={haiku.one}
         />
-        <Card.Text onClick={() => setShowC(!showC)}>{haiku.two}</Card.Text>
+        <Card.Text className="text" onClick={() => setShowC(!showC)}>{haiku.two}</Card.Text>
         <input
           ref={inputRefC}
           style={{ display: showC ? 'block' : 'none' }}
