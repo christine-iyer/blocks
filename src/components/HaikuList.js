@@ -3,7 +3,8 @@ import Haiku from './Haiku'
 export default function HaikuList ({
   haikus,
   updateHaiku,
-  deleteHaiku
+  deleteHaiku,
+  likeHaiku
 }) {
   return (
     <ul style={{display:"flex",flexWrap:"wrap", margin: '1rem'}}>
@@ -15,6 +16,7 @@ export default function HaikuList ({
                   haiku={haiku}
                   updateHaiku={updateHaiku}
                   deleteHaiku={deleteHaiku}
+                  likeHaiku={likeHaiku}
                 />
               ))
               : <>

@@ -19,7 +19,6 @@ import {
 
 function App() {
   const [haiku, setHaiku] = useState({
-    
     author: '',
     one: '',
     two: '',
@@ -32,30 +31,7 @@ function App() {
   const handleChange = (event) => {
     setHaiku({ ...haiku, [event.target.name]: event.target.value })
   }
-  const likeHaiku = async (id) => {
-    try {
-      const index = haikus.findIndex((haiku) => haiku._id === id)
-      const haikusCopy = [...haikus]
-      const subject = haikusCopy[index]
-      subject.like = subject.like + 1
-      const response = await fetch(`/api/haikus/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(subject)
-      })
-      const likedHaiku = await response.json()
-      const likedHaikusCopy = [likedHaiku, ...haikus]
 
-      setHaikus(likedHaikusCopy)
-      setHaikus(haikusCopy)
-    
-
-    } catch (error) {
-      console.error(error)
-    }
-  }
   const createHaiku = async () => {
     try {
       const response = await fetch('/api/haikus', {
@@ -74,9 +50,30 @@ function App() {
         author: '',
         one: '',
         two: '',
-        three: '', 
-        like:0
+        three: '',
+        like: 0
       })
+    }
+  }
+  const likeHaiku = async (id) => {
+    try {
+      const index = haikus.findIndex((haiku) => haiku._id === id)
+      const haikusCopy = [...haikus]
+      const subject = haikusCopy[index]
+      subject.like = subject.like + 1
+      const response = await fetch(`/api/haikus/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(subject)
+      })
+      const likedHaiku = await response.json()
+      const likedHaikusCopy = [likedHaiku, ...haikus]
+      setHaikus(likedHaikusCopy)
+      setHaikus(haikusCopy)
+    } catch (error) {
+      console.error(error)
     }
   }
   const deleteHaiku = async (id) => {
@@ -143,8 +140,8 @@ function App() {
         <HaikuList
           haikus={haikus}
           deleteHaiku={deleteHaiku}
-          updateHaiku={updateHaiku} 
-          likeHaiku={likeHaiku}/>
+          updateHaiku={updateHaiku}
+          likeHaiku={likeHaiku} />
       </div>
       <div>
         <DndContext
