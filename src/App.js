@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import CreateHaiku from './components/CreateHaiku';
 import HaikuList from './components/HaikuList';
+
 import { SortableItem } from './components/SortableItem';
 import {
   DndContext,
@@ -181,6 +182,7 @@ function App() {
           likeHaiku={likeHaiku} />
       </div>
       <div>
+  
         <DndContext
           collisionDetection={closestCenter}
           onDragEnd={handleDragEnd}>

@@ -28,6 +28,7 @@ export default function CreateHaiku({
             <Form.Control type='text' value={haiku.two} name='two' onChange={handleChange} placeholder='Line 2' />
             <Form.Control type='text' value={haiku.three} name='three' onChange={handleChange} placeholder='Line 3' />
             <Form.Control type='text' value={haiku.title} name='title' onChange={handleChange} placeholder='Optional title' />
+            {/* <input name="clr" type="color" value={haiku.color}></input> */}
           </div>
           <input className='button' type='submit' value='Create Haiku' />
         </Form>
