@@ -1,12 +1,18 @@
 import { useRef, useState } from 'react'
 import Card from 'react-bootstrap/Card'
 import '../App.css'
+import setClass from '../utilities/category-class'
+import styles from './HaikuList.module.scss'
+
+
+
 export default function Haiku({
   haiku,
   updateHaiku,
   deleteHaiku,
   likeHaiku,
 }) {
+
   const [showA, setShowA] = useState(false)
   const [showB, setShowB] = useState(false)
   const [showC, setShowC] = useState(false)
@@ -18,8 +24,8 @@ export default function Haiku({
   const inputRefD = useRef(null)
   const inputRefE = useRef(null)
   return (
-    <>
-      <Card style={{ width: '20%', height: '10%', padding: '1%', margin: '1%', textAlign: 'left', backgroundColor: haiku.color }}>
+    <div className={setClass(haiku,styles)}>
+      <Card style={{ width: '20%', height: '10%', padding: '1%', margin: '1%', textAlign: 'left', borderColor: haiku.color , borderWidth: '1em'}}>
         <Card.Title onClick={() => setShowE(!showE)}> T {haiku.title}</Card.Title>
         <input
           ref={inputRefE}
@@ -94,13 +100,13 @@ export default function Haiku({
           backgroundColor: haiku.color,
           display: "flex", alignItems: "center",
           position: "relative", zIndex: 1
-        }} defaultValue={haiku.color}> {new Date(haiku.createdAt).toLocaleDateString()}  </p>
+        }} defaultValue=""> {new Date(haiku.createdAt).toLocaleDateString()}  </p>
         </span>
 
         <button style={{ color: 'red' }} className="button-32" onClick={() => deleteHaiku(haiku._id)}>X</button>
         <button style={{ 'fontStyle': 'italic' , 'width':'20%', 'display':'inlineBlock'}} className="btn btn-outline-warning" onClick={() => likeHaiku(haiku._id)}>♥️{haiku.like}</button>
         <button style={{ 'fontStyle': 'italic' , 'width':'20%', 'display':'inlineBlock'}} className="btn btn-outline-warning" onClick={() => likeHaiku(haiku._id)}>{haiku.comment}</button>
       </Card>
-    </>
+    </div>
   )
 }

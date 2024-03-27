@@ -1,5 +1,7 @@
 import Haiku from './Haiku'
 
+
+
 export default function HaikuList ({
   haikus,
   updateHaiku,
@@ -8,12 +10,13 @@ export default function HaikuList ({
   commentHaiku
 }) {
   return (
-    <ul style={{display:"flex",flexWrap:"wrap", margin: '1rem'}}>
+    <ul  style={{display:"flex",flexWrap:"wrap", margin: '1rem'}}>
       {
             haikus.length
               ? haikus.map(haiku => (
                 <Haiku
                   key={haiku._id}
+
                   haiku={haiku}
                   updateHaiku={updateHaiku}
                   deleteHaiku={deleteHaiku}

@@ -30,10 +30,10 @@ export default function CreateHaiku({
             <Form.Control type='text' value={haiku.two} name='two' onChange={handleChange} placeholder='Line 2' />
             <Form.Control type='text' value={haiku.three} name='three' onChange={handleChange} placeholder='Line 3' />
             <Form.Control type='text' value={haiku.title} name='title' onChange={handleChange} placeholder='Optional title' />
-            <Form.Control type="color" id="exampleColorInput" value={haiku.color} name="color"  title="Choose your color" onChange={handleChange}/>
+            <Form.Control style={{backgroundColor:haiku.color}}type="color" id="exampleColorInput" value={haiku.color} name="color"  title="Choose your color" onChange={handleChange}/>
           </div>
          
-          <input style={{color: haiku.color}}className='button' type='submit' value='Create Haiku' />
+          <input style={{color: 'red'}}className='button' type='submit' value='Create Haiku' />
         </Form>
       </div>
 
