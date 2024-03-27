@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import CreateHaiku from './components/CreateHaiku';
 import HaikuList from './components/HaikuList';
+import ColorPicker from './components/ColorPicker';
 
 import { SortableItem } from './components/SortableItem';
 import {
@@ -25,6 +26,7 @@ function App() {
     two: '',
     three: '',
     title: '',
+    color:'',
     like: 0,
     comment: ''
   })
@@ -55,7 +57,8 @@ function App() {
         two: '',
         three: '',
         title: '',
-        like: 0, 
+        color:'',
+        like: 0,
         comment: ''
       })
     }
@@ -182,7 +185,7 @@ function App() {
           likeHaiku={likeHaiku} />
       </div>
       <div>
-  
+  <ColorPicker />
         <DndContext
           collisionDetection={closestCenter}
           onDragEnd={handleDragEnd}>

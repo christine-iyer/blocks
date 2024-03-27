@@ -1,4 +1,6 @@
 import { Form } from 'react-bootstrap';
+import ColorPicker from './ColorPicker';
+
 
 export default function CreateHaiku({
   createHaiku,
@@ -28,9 +30,10 @@ export default function CreateHaiku({
             <Form.Control type='text' value={haiku.two} name='two' onChange={handleChange} placeholder='Line 2' />
             <Form.Control type='text' value={haiku.three} name='three' onChange={handleChange} placeholder='Line 3' />
             <Form.Control type='text' value={haiku.title} name='title' onChange={handleChange} placeholder='Optional title' />
-            {/* <input name="clr" type="color" value={haiku.color}></input> */}
+            <Form.Control type="color" id="exampleColorInput" value={haiku.color} name="color"  title="Choose your color" onChange={handleChange}/>
           </div>
-          <input className='button' type='submit' value='Create Haiku' />
+         
+          <input style={{color: haiku.color}}className='button' type='submit' value='Create Haiku' />
         </Form>
       </div>
 
