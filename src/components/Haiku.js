@@ -89,11 +89,13 @@ export default function Haiku({
             }
           }}
           defaultValue={haiku.author}
-        /><p style={{
+        />
+        <p style={{
           display: "flex", alignItems: "center",
           position: "relative", zIndex: 1
         }}> {new Date(haiku.updatedAt).toLocaleDateString()}  </p>
         </span>
+        
         <button style={{ color: 'red' }} className="button-32" onClick={() => deleteHaiku(haiku._id)}>X</button>
         <button style={{ 'fontStyle': 'italic' , 'width':'20%', 'display':'inlineBlock'}} className="btn btn-outline-warning" onClick={() => likeHaiku(haiku._id)}>♥️{haiku.like}</button>
         <button style={{ 'fontStyle': 'italic' , 'width':'20%', 'display':'inlineBlock'}} className="btn btn-outline-warning" onClick={() => likeHaiku(haiku._id)}>{haiku.comment}</button>
