@@ -3,7 +3,7 @@
   font-family: 'bradley hand' ;
   background-color: #edd8c3;
   background-color: rgba( 224,175,155,0.7);
-  background-color: #ff5500;
+ 
   font-variant-east-asian: jis78;
 }
 
@@ -11,6 +11,8 @@
 .text {
   line-height: 1em;
   margin-bottom: 0;
+  font-size: 1em;
+  font-weight: 600;
 }
 .texty  {
   margin-top: 0%;
@@ -36,6 +38,7 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  border: none ;
 }
 
 .button-32:not(:disabled):hover,
@@ -43,10 +46,15 @@
   outline: 0;
   background: #f4e603;
   box-shadow: 0 0 0 2px #ff5500, 0 3px 8px 0 rgba(0,0,0,.15);
+  border: none ;
 }
 
 .button-32:disabled {
   filter: saturate(0.2) opacity(0.5);
   -webkit-filter: saturate(0.2) opacity(0.5);
   cursor: not-allowed;
+}
+text{
+  font-size: 20px;
+  font-weight: 100;
 }
