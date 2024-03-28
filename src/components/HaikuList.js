@@ -10,7 +10,7 @@ export default function HaikuList ({
   commentHaiku
 }) {
   return (
-    <ul  style={{display:"flex",flexWrap:"wrap", margin: '1rem'}}>
+    <div  style={{ margin: '1rem'}}>
       {
             haikus.length
               ? haikus.map(haiku => (
@@ -28,6 +28,6 @@ export default function HaikuList ({
                 <h2>No Haikus Yet... Add one in the Form Above</h2>
                 </>
         }
-    </ul>
+    </div>
   )
 }
