@@ -1,10 +1,10 @@
 .App {
   text-align: center;
   font-family: 'bradley hand' ;
-  background-color: rgba( 224,175,155,0.3);
-  
-    font-variant-east-asian: jis78;
+  background-image: url(./photos/background.png);
+  font-variant-east-asian: jis78;
 }
+
 
 
 .text {
@@ -12,6 +12,7 @@
   margin-bottom: 0;
   font-size: 1em;
   font-weight: 600;
+
 }
 .texty  {
   margin-top: 0%;
