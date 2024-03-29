@@ -25,7 +25,7 @@ export default function Haiku({
   const inputRefE = useRef(null)
   return (
     < >
-      <Card className={setClass(haiku,styles)} style={{ width: '20%', height: '10%', padding: '1%', margin: '1%', textAlign: 'left', boxShadow: '12px 12px 12px 11px haiku.color'}}>
+      <Card className={setClass(haiku,styles)} style={{ width: '20%', height: '10%', padding: '1%', margin: '1%', textAlign: 'left'}}>
         <Card.Title onClick={() => setShowE(!showE)}> T {haiku.title}</Card.Title>
         <input
           ref={inputRefE}
@@ -97,15 +97,15 @@ export default function Haiku({
           defaultValue={haiku.author}
         />
         <p style={{
-          backgroundColor: haiku.color,
+          color: haiku.color,
           display: "flex", alignItems: "center",
           position: "relative", zIndex: 1
         }} defaultValue=""> {new Date(haiku.createdAt).toLocaleDateString()}  </p>
         </span>
 
-        <button style={{ color: 'red' }} className="button-32" onClick={() => deleteHaiku(haiku._id)}>X</button>
-        <button style={{ 'fontStyle': 'italic' , 'width':'20%', 'display':'inlineBlock'}} className="btn btn-outline-warning" onClick={() => likeHaiku(haiku._id)}>♥️{haiku.like}</button>
-        <button style={{ 'fontStyle': 'italic' , 'width':'20%', 'display':'inlineBlock'}} className="btn btn-outline-warning" onClick={() => likeHaiku(haiku._id)}>{haiku.comment}</button>
+
+        <button style={{ 'fontStyle': 'italic' , 'width':'30%', 'display':'inlineBlock', border:'none', opacity:'50%'}} className="btn btn-outline-warning" onClick={() => likeHaiku(haiku._id)}>🧡 {haiku.like}</button>
+       
       </Card>
     </>
   )

@@ -1,8 +1,9 @@
 .App {
   text-align: center;
   font-family: 'bradley hand' ;
-  background-color: rgba( 224,175,155,0.7);
-  font-variant-east-asian: jis78;
+  background-color: rgba( 224,175,155,0.3);
+  
+    font-variant-east-asian: jis78;
 }
 
 
@@ -20,7 +21,7 @@
 
 
 .button-32 {
-  background-color: #ffee004e;
+  background-color:rgba( 224,175,155,0.7);
   border-radius: 12px;
   color: #ff5500 ;
   cursor: pointer;
@@ -42,7 +43,7 @@
 .button-32:not(:disabled):hover,
 .button-32:not(:disabled):focus {
   outline: 0;
-  background: #f4e603;
+  background: rgba( 224,175,155,0.3);
   box-shadow: 0 0 0 2px #ff5500, 0 3px 8px 0 rgba(0,0,0,.15);
   border: none ;
 }
