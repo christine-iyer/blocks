@@ -24,8 +24,8 @@ export default function Haiku({
   const inputRefD = useRef(null)
   const inputRefE = useRef(null)
   return (
-    <div className={setClass(haiku,styles)}>
-      <Card style={{ width: '20%', height: '10%', padding: '1%', margin: '1%', textAlign: 'left',borderColor: haiku.color }}>
+    < >
+      <Card className={setClass(haiku,styles)} style={{ width: '20%', height: '10%', padding: '1%', margin: '1%', textAlign: 'left', boxShadow: '12px 12px 12px 11px haiku.color'}}>
         <Card.Title onClick={() => setShowE(!showE)}> T {haiku.title}</Card.Title>
         <input
           ref={inputRefE}
@@ -107,6 +107,6 @@ export default function Haiku({
         <button style={{ 'fontStyle': 'italic' , 'width':'20%', 'display':'inlineBlock'}} className="btn btn-outline-warning" onClick={() => likeHaiku(haiku._id)}>♥️{haiku.like}</button>
         <button style={{ 'fontStyle': 'italic' , 'width':'20%', 'display':'inlineBlock'}} className="btn btn-outline-warning" onClick={() => likeHaiku(haiku._id)}>{haiku.comment}</button>
       </Card>
-    </div>
+    </>
   )
 }

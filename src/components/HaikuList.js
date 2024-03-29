@@ -1,4 +1,6 @@
 import Haiku from './Haiku'
+import styles from './HaikuList.module.scss'
+
 
 
 
@@ -10,7 +12,7 @@ export default function HaikuList ({
   commentHaiku
 }) {
   return (
-    <div  style={{ margin: '1rem'}}>
+    <ul  style={{ margin: '1rem', 'display': 'flex',flexDirection: 'row',flexWrap: 'wrap'}}>
       {
             haikus.length
               ? haikus.map(haiku => (
@@ -28,6 +30,6 @@ export default function HaikuList ({
                 <h2>No Haikus Yet... Add one in the Form Above</h2>
                 </>
         }
-    </div>
+    </ul>
   )
 }
