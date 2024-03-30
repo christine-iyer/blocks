@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from 'react-bootstrap/Container';
+import {Container, Modal, Button} from 'react-bootstrap';
 import CreateHaiku from './components/CreateHaiku';
 import HaikuList from './components/HaikuList';
-import ColorPicker from './components/ColorPicker';
 
 import { SortableItem } from './components/SortableItem';
 import {
@@ -36,6 +35,10 @@ function App() {
   const handleChange = (event) => {
     setHaiku({ ...haiku, [event.target.name]: event.target.value })
   }
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const createHaiku = async () => {
     try {
@@ -173,10 +176,26 @@ function App() {
   return (
     <div className="App">
       <div>
+        <button variant="primary" onClick={handleShow}>Launch</button>
+        <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
         <CreateHaiku style={{ height: '50%', margin: "5%" }}
           createHaiku={createHaiku}
           haiku={haiku}
           handleChange={handleChange} />
+          </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
         <HaikuList
           haikus={haikus}
@@ -185,7 +204,7 @@ function App() {
           likeHaiku={likeHaiku} />
       </div>
       <div>
-  <ColorPicker />
+        
         <DndContext
           collisionDetection={closestCenter}
           onDragEnd={handleDragEnd}>
