@@ -5,16 +5,7 @@ import {Container, Modal, Button} from 'react-bootstrap';
 import CreateHaiku from './components/CreateHaiku';
 import HaikuList from './components/HaikuList';
 
-import { SortableItem } from './components/SortableItem';
-import {
-  DndContext,
-  closestCenter
-} from "@dnd-kit/core";
-import {
-  arrayMove,
-  SortableContext,
-  verticalListSortingStrategy
-} from "@dnd-kit/sortable";
+
 
 
 
@@ -87,33 +78,7 @@ function App() {
       console.error(error)
     }
   }
-  const commentHaiku = async (id) => {
-    try {
-      const index = haikus.findIndex((haiku) => haiku._id === id)
-      const haikusCopy = [...haikus]
-      const subject = haikusCopy[index]
-      subject.comment = subject.comment + 1
-    //   const completeTodo = (id, e) => {
-    //     const todosCopy = [...todos]
-    //     const indexOfTodo = todosCopy.findIndex((i) => i.id === id )
-    //     todosCopy[indexOfTodo].completed = !todosCopy[indexOfTodo].completed
-    //     setTodos(todosCopy)
-    // }
-      const response = await fetch(`/api/haikus/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(subject)
-      })
-      const likedHaiku = await response.json()
-      const likedHaikusCopy = [likedHaiku, ...haikus]
-      setHaikus(likedHaikusCopy)
-      setHaikus(haikusCopy)
-    } catch (error) {
-      console.error(error)
-    }
-  }
+  
   const deleteHaiku = async (id) => {
     try {
       const response = await fetch(`/api/haikus/${id}`, {
@@ -176,13 +141,10 @@ function App() {
   return (
     <div className="App">
       <div>
-        <button variant="primary" onClick={handleShow}>Launch</button>
+        <button variant="primary" onClick={handleShow}>Peek-A-Boo Haiku</button>
         <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
         <Modal.Body>
-        <CreateHaiku style={{ height: '50%', margin: "5%" }}
+        <CreateHaiku style={{ height: '50%', margin: "5%", width: '80%' }}
           createHaiku={createHaiku}
           haiku={haiku}
           handleChange={handleChange} />
@@ -190,9 +152,6 @@ function App() {
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
           </Button>
         </Modal.Footer>
       </Modal>
@@ -205,36 +164,11 @@ function App() {
       </div>
       <div>
         
-        <DndContext
-          collisionDetection={closestCenter}
-          onDragEnd={handleDragEnd}>
-          <Container className="p-3" style={{ "width": "50%" }} align="center" >
-            <h3> Titile</h3>
-            <SortableContext items={languages} strategy={verticalListSortingStrategy}>
-              {languages.map(language => <SortableItem key={language} id={language} />)}
-              {/* {haikus.map(({id, img, alt}) => <SortableItem key={id} id={id} img={img} alt={alt} />)} */}
-            </SortableContext>
-          </Container>
-        </DndContext>
+        
       </div>
     </div>
   )
-  function handleDragEnd(event) {
-    console.log("Drag End")
-    const { active, over } = event
-    console.log('active' + active.id)
-    console.log('over' + over.id)
-    if (active.id !== over.id) {
-      setLanguages((items) => {
-        const activeIndex = items.indexOf(active.id);
-        const overIndex = items.indexOf(over.id);
-        //        const activeIndex = items.findIndex(({ id }) => id ===  active.id);
-        // const overIndex = items.findIndex(({ id }) => id ===  over.id);
-        console.log(arrayMove(items, activeIndex, overIndex));
-        return arrayMove(items, activeIndex, overIndex);
-      });
-    }
-  }
+
 }
 
 export default App;

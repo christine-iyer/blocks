@@ -26,7 +26,7 @@ export default function Haiku({
   return (
     < >
       <Card className={setClass(haiku,styles)} style={{ width: '20%', height: '10%', padding: '1%', margin: '1%', textAlign: 'left', boxShadow: '12px 12px 12px 11px haiku.color'}}>
-        <Card.Title onClick={() => setShowE(!showE)}> T {haiku.title}</Card.Title>
+        <Card.Title onClick={() => setShowE(!showE)}>{haiku.title}</Card.Title>
         <input
           ref={inputRefE}
           style={{ display: showE ? 'block' : 'none' }}
@@ -102,7 +102,7 @@ export default function Haiku({
           position: "relative", zIndex: 1
         }} defaultValue=""> {new Date(haiku.createdAt).toLocaleDateString()}  </p>
         </span>
-
+        <button style={{ 'fontStyle': 'italic' , 'width':'30%', 'display':'inlineBlock', border:'none', opacity:'50%'}} className="btn btn-outline-warning" onClick={() => deleteHaiku(haiku._id)}>X</button>
 
         <button style={{ 'fontStyle': 'italic' , 'width':'30%', 'display':'inlineBlock', border:'none', opacity:'50%'}} className="btn btn-outline-warning" onClick={() => likeHaiku(haiku._id)}>🧡 {haiku.like}</button>
        

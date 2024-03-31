@@ -12,7 +12,7 @@ export default function CreateHaiku({
 
         <h2>Create A Haiku</h2>
         <div className='container'>
-          <Form style={{ width: '40%', position: 'sticky', float: 'right' }}
+          <Form style={{ width: '100%', position: 'sticky', float: 'left',fontFamily:'bradleyHand' }}
             className='form'
             onSubmit={(e) => {
               e.preventDefault()
