@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, Modal, Button} from 'react-bootstrap';
 import CreateHaiku from './components/CreateHaiku';
 import HaikuList from './components/HaikuList';
+import Search from './components/Search';
 
 
 
@@ -156,7 +157,7 @@ function App() {
           </Button>
         </Modal.Footer>
       </Modal>
-
+<Search />
         <HaikuList
           haikus={haikus}
           deleteHaiku={deleteHaiku}
