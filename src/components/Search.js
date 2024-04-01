@@ -2,6 +2,10 @@ import {useState} from 'react'
 
 export default function Search({haiku }) {
      const [searchItem, setSearchItem] = useState('')
+
+     const handleChange = (evt) => {
+      setSearchItem(evt.target.value);
+    };
      const handleSubmit = (e) => {
           const searchItem = e.target.value;
           setSearchItem(searchItem)
