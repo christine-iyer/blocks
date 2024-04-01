@@ -9,6 +9,7 @@ import HaikuList from './components/HaikuList';
 
 
 
+
 function App() {
   const [haiku, setHaiku] = useState({
     author: '',
@@ -22,7 +23,7 @@ function App() {
   })
   const [haikus, setHaikus] = useState([])
   const [foundHaikus, setFoundHaikus] = useState(null)
-  const [languages, setLanguages] = useState(["JavaScript", "Python", "TypeScript"]);
+
   const handleChange = (event) => {
     setHaiku({ ...haiku, [event.target.name]: event.target.value })
   }

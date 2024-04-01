@@ -97,10 +97,11 @@ export default function Haiku({
           defaultValue={haiku.author}
         />
         <p style={{
+          defaultValue: "E45845",
           color: haiku.color,
           display: "flex", alignItems: "center",
           position: "relative", zIndex: 1
-        }} defaultValue=""> {new Date(haiku.createdAt).toLocaleDateString()}  </p>
+        }} > {new Date(haiku.createdAt).toLocaleDateString()}  </p>
         </span>
         <button style={{ 'fontStyle': 'italic' , 'width':'30%', 'display':'inlineBlock', border:'none', opacity:'50%'}} className="btn btn-outline-warning" onClick={() => deleteHaiku(haiku._id)}>X</button>
 

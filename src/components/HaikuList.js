@@ -1,5 +1,5 @@
 import Haiku from './Haiku'
-import Search from './Search'
+
 import { useRef, useState } from'react'
 import styles from './HaikuList.module.scss'
 
@@ -15,7 +15,7 @@ export default function HaikuList ({
 }) {
   return (
     <div>
-      <Search />
+
     <ul  style={{ margin: '1rem', 'display': 'flex',flexDirection: 'row',flexWrap: 'wrap'}}>
       {
             haikus.length
