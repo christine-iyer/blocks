@@ -97,7 +97,7 @@ export default function Haiku({
           defaultValue={haiku.author}
         />
         <p style={{
-          defaultValue: "E45845",
+          defaultValue: "#E45845",
           color: haiku.color,
           display: "flex", alignItems: "center",
           position: "relative", zIndex: 1
