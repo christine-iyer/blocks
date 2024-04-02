@@ -4,11 +4,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, Modal, Button} from 'react-bootstrap';
 import CreateHaiku from './components/CreateHaiku';
 import HaikuList from './components/HaikuList';
-import Search from './components/Search';
 
+import FilterableProductTable from './components/FilterableProductTable';
 
-
-
+const PRODUCTS = [
+  {category: "Fruits", price: "$1", stocked: true, name: "Apple"},
+  {category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit"},
+  {category: "Fruits", price: "$2", stocked: false, name: "Passionfruit"},
+  {category: "Vegetables", price: "$2", stocked: true, name: "Spinach"},
+  {category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin"},
+  {category: "Vegetables", price: "$1", stocked: true, name: "Peas"}
+]
 
 
 function App() {
@@ -157,7 +163,7 @@ function App() {
           </Button>
         </Modal.Footer>
       </Modal>
-<Search />
+      <FilterableProductTable haikus={haikus} />
         <HaikuList
           haikus={haikus}
           deleteHaiku={deleteHaiku}
