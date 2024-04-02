@@ -5,7 +5,7 @@ export default function SearchBar({
   return (
     <form>
       <input 
-        type="text" 
+        type="select" 
         value={filterText} placeholder="Search..." 
         onChange={(e) => onFilterTextChange(e.target.value)} />
 

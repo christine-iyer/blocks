@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, Modal, Button} from 'react-bootstrap';
 import CreateHaiku from './components/CreateHaiku';
 import HaikuList from './components/HaikuList';
+import SearchBar from './components/SearchBar';
 
 import FilterableProductTable from './components/FilterableProductTable';
 
@@ -18,6 +19,7 @@ const PRODUCTS = [
 
 
 function App() {
+  const [filterText, setFilterText] = useState('');
   const [haiku, setHaiku] = useState({
     author: '',
     one: '',
@@ -164,7 +166,15 @@ function App() {
         </Modal.Footer>
       </Modal>
       <FilterableProductTable products={PRODUCTS} />
+      
+      
+      <SearchBar 
+           filterText={filterText} 
+      
+           onFilterTextChange={setFilterText} 
+         />
         <HaikuList
+        filterText={filterText}
           haikus={haikus}
           deleteHaiku={deleteHaiku}
           updateHaiku={updateHaiku}
