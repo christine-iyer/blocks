@@ -177,6 +177,7 @@ function App() {
          />
         <HaikuList
         filterText={filterText}
+        setFilterText
           haikus={haikus}
           deleteHaiku={deleteHaiku}
           updateHaiku={updateHaiku}

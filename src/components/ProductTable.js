@@ -12,7 +12,8 @@ export default function ProductTable({ products, filterText }) {
          product.name.toLowerCase().indexOf(
            filterText.toLowerCase()
          ) === -1
-       ) {
+       )
+       {
          return;
        }
        if (product.category !== lastCategory) {
@@ -32,13 +33,8 @@ export default function ProductTable({ products, filterText }) {
    
      return (
        <ul>
-         <h1>
-           <tr>
-             <th>Name</th>
-             <th>Price</th>
-           
-           </tr>
-         </h1>
+
+     
          <li>{rows}</li>
        </ul>
      );

@@ -5,10 +5,10 @@ export default function ProductRow({ product }) {
        </span>;
    
      return (
-       <tr>
-         <td>{name}</td>
-         <td>{product.price}</td>
-       </tr>
+       <>
+         <p>{name}</p>
+
+       </>
      );
    }
 

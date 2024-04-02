@@ -1,10 +1,10 @@
 export default function ProductCategoryRow({ author }) {
      return (
-       <tr>
-         <th colSpan="2">
+      
+         <h1 colSpan="2">
            {author}
-         </th>
-       </tr>
+         </h1>
+   
      );
    }
    
