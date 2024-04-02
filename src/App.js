@@ -163,7 +163,7 @@ function App() {
           </Button>
         </Modal.Footer>
       </Modal>
-      <FilterableProductTable haikus={haikus} />
+      <FilterableProductTable products={PRODUCTS} />
         <HaikuList
           haikus={haikus}
           deleteHaiku={deleteHaiku}
