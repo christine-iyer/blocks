@@ -21,11 +21,11 @@ export default function CreateHaiku({
           <div >
             <Form.Select style={{ backgroundColor: 'rgba( 224,175,155,0.3)' }} aria-label="Default select example" value={haiku.author} onChange={handleChange} name="author">
               <option>Author</option>
-              <option value="chris">Chris</option>
-              <option value="claire">Claire</option>
-              <option value="laura">Laura</option>
-              <option value="leah">Leah</option>
-              <option value="paul">Paul</option>
+              <option value="chris" name="chris">Chris</option>
+              <option value="claire" name="claire">Claire</option>
+              <option value="laura" name="laura">Laura</option>
+              <option value="leah" name="leah">Leah</option>
+              <option value="paul" name="paul">Paul</option>
             </Form.Select>
             <Form.Control style={{ backgroundColor: 'rgba( 224,175,155,0.1)' }} type='text' value={haiku.one} name='one' onChange={handleChange} placeholder='Line 1' />
             <Form.Control style={{ backgroundColor: 'rgba( 224,175,155,0.1)' }} type='text' value={haiku.two} name='two' onChange={handleChange} placeholder='Line 2' />
