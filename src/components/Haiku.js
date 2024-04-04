@@ -83,9 +83,9 @@ export default function Haiku({
           }}
           defaultValue={haiku.three}
         />
-        <span><p onClick={() => setShowA(!showA)}>by {haiku.author}</p> <input
+        <span><p onClick={() => setShowA(!showA)}>by {haiku.author}</p> <select
           ref={inputRefA}
-          type='text'
+          type='select'
           style={{ display: showA ? 'block' : 'none' }}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
@@ -95,7 +95,14 @@ export default function Haiku({
             }
           }}
           defaultValue={haiku.author}
-        />
+        >
+           <option value="chris" name="chris">chris</option>
+              <option value="claire" name="claire">claire</option>
+              <option value="laura" name="laura">laura</option>
+              <option value="leah" name="leah">leah</option>
+              <option value="paul" name="paul">paul</option>
+        </select>
+       
         <p style={{
           defaultValue: "#E45845",
           color: haiku.color,

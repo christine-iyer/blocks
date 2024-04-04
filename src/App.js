@@ -1,24 +1,30 @@
 import { useState, useEffect } from 'react'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Container, Modal, Button} from 'react-bootstrap';
+import { Container, Modal, Button } from 'react-bootstrap';
 import CreateHaiku from './components/CreateHaiku';
 import HaikuList from './components/HaikuList';
 import SearchBar from './components/SearchBar';
 
+
 import FilterableProductTable from './components/FilterableProductTable';
 
 const PRODUCTS = [
-  {category: "Fruits", price: "$1", stocked: true, name: "Apple"},
-  {category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit"},
-  {category: "Fruits", price: "$2", stocked: false, name: "Passionfruit"},
-  {category: "Vegetables", price: "$2", stocked: true, name: "Spinach"},
-  {category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin"},
-  {category: "Vegetables", price: "$1", stocked: true, name: "Peas"}
+  { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
+  { category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit" },
+  { category: "Fruits", price: "$2", stocked: false, name: "Passionfruit" },
+  { category: "Vegetables", price: "$2", stocked: true, name: "Spinach" },
+  { category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin" },
+  { category: "Vegetables", price: "$1", stocked: true, name: "Peas" }
 ]
 
 
 function App() {
+  const [counter, setCounter] = useState(0)
+  useEffect(() => {
+    document.title = 'CounterWhat: ${count}';
+  })
+
   const [filterText, setFilterText] = useState('');
   const [haiku, setHaiku] = useState({
     author: '',
@@ -26,7 +32,7 @@ function App() {
     two: '',
     three: '',
     title: '',
-    color:'',
+    color: '',
     like: 0,
     comment: ''
   })
@@ -37,9 +43,26 @@ function App() {
     setHaiku({ ...haiku, [event.target.name]: event.target.value })
   }
   const [show, setShow] = useState(false);
-
+  const [showAD, setShowAD] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleShowA = () => setShowAD(false);
+  const handleShowD = () => setShowAD(true);
+
+
+  const [filteredHaikus, setFilteredHaikus] = useState(haikus)
+
+  const filterByAuthor = author => {
+    setFilteredHaikus(
+      haikus.filter(haiku => haiku.author === author)
+    )
+  }
+
+  // Using Set to filter unique values
+  const authors = Array.from(
+    new Set(haikus.map(haiku => haiku.author))
+  )
+  
 
   const createHaiku = async () => {
     try {
@@ -61,7 +84,7 @@ function App() {
         two: '',
         three: '',
         title: '',
-        color:'',
+        color: '',
         like: 0,
         comment: ''
       })
@@ -88,7 +111,7 @@ function App() {
       console.error(error)
     }
   }
-  
+
   const deleteHaiku = async (id) => {
     try {
       const response = await fetch(`/api/haikus/${id}`, {
@@ -125,7 +148,7 @@ function App() {
     }
   }
 
-  
+
 
   const listHaikus = async () => {
     try {
@@ -155,37 +178,49 @@ function App() {
       <div>
         <button variant="primary" onClick={handleShow}>Peek-A-Boo Haiku</button>
         <Modal show={show} onHide={handleClose}>
-        <Modal.Body>
-        <CreateHaiku style={{ height: '50%', margin: "5%", width: '80%' }}
-          createHaiku={createHaiku}
-          haiku={haiku}
-          handleChange={handleChange} />
+          <Modal.Body>
+            <CreateHaiku style={{ height: '50%', margin: "5%", width: '80%' }}
+              createHaiku={createHaiku}
+              haiku={haiku}
+              handleChange={handleChange} />
           </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
-      <FilterableProductTable products={PRODUCTS} />
-      
-      
-      <SearchBar 
-           filterText={filterText} 
-      
-           onFilterTextChange={setFilterText} 
-         />
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+
+        
+        <FilterableProductTable products={PRODUCTS} />
+
+
+        <SearchBar
+          filterText={filterText}
+
+          onFilterTextChange={setFilterText}
+        />
+
         <HaikuList
-        filterText={filterText}
-        setFilterText
+          filterText={filterText}
+          setFilterText
           haikus={haikus}
           deleteHaiku={deleteHaiku}
           updateHaiku={updateHaiku}
           likeHaiku={likeHaiku} />
       </div>
       <div>
-        
-        
+
+            <div>
+              <p>Counter value: {counter}</p>
+              <button onClick={() => setCounter(counter + 1)}>
+                Increment
+              </button>
+            </div>
+
+
+
+
       </div>
     </div>
   )
