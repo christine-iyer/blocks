@@ -1,14 +1,14 @@
 async function fetchBreedList({ queryKey }) {
-     const animal = queryKey[1];
+     const author = queryKey[1];
    
-     if (!animal) return [];
+     if (!author) return [];
    
      const res = await fetch(
-       `http://pets-v2.dev-apis.com/breeds?animal=${animal}`
+       `apis/haikus?author=${author}`
      );
    
      if (!res.ok) {
-       throw new Error(`breeds ${animal} fetch not ok`);
+       throw new Error(`breeds ${author} fetch not ok`);
      }
    
      return res.json();

@@ -11,6 +11,7 @@ const Pet = (props) => {
       </div>
       <div className="info">
         <h1>{author}</h1>
+        <h2>{title}</h2>
         <h2>{`${one} — ${two} — ${three}`}</h2>
       </div>
     </Link>

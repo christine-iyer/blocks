@@ -160,7 +160,7 @@ function App() {
       })
       const data = await response.json()
       setHaikus(data)
-      console.log(data[0].author)
+      console.log(data[7].author)
     } catch (error) {
       console.error(error)
     }

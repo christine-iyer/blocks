@@ -14,7 +14,7 @@ const Results = ({ haikus }) => {
               one={haiku.one}
               two={haiku.two}
               three={haiku.three}
-              location={haiku.title}
+              title={haiku.title}
               id={haiku._id}
             />
           );

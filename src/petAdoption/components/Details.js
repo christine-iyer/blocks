@@ -3,8 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import fetchPet from "./fetchPet";
 
 const Details = () => {
-  const { id } = useParams();
-  const results = useQuery(["details", id], fetchPet);
+  const { _id } = useParams();
+  const results = useQuery(["details", _id], fetchPet);
 
   if (results.isLoading) {
     return (
@@ -14,15 +14,16 @@ const Details = () => {
     );
   }
 
-  const pet = results.data.pets[0];
+  const haiku = results.data.haikus[0];
+  console.log(haiku);
 
   return (
     <div className="details">
       <div>
-        <h1>{pet.author}</h1>
-        <h2>{`${pet.title} — ${pet.one} — ${pet.two}, ${pet.three}`}</h2>
-        <button>Adopt {pet.author}</button>
-        <p>{pet.description}</p>
+        <h1>{haiku.author}</h1>
+        <h2>{`${haiku.title} — ${haiku.one} — ${haiku.two}, ${haiku.three}`}</h2>
+        <button>Adopt {haiku.author}</button>
+        <p>{haiku.description}</p>
       </div>
     </div>
   );
