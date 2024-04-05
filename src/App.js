@@ -5,9 +5,8 @@ import { Container, Modal, Button } from 'react-bootstrap';
 import CreateHaiku from './components/CreateHaiku';
 import HaikuList from './components/HaikuList';
 import SearchBar from './components/SearchBar';
-
-
 import FilterableProductTable from './components/FilterableProductTable';
+import PetAdoptionApp from './petAdoption/components/PetAdoptionApp'
 
 const PRODUCTS = [
   { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
@@ -17,6 +16,7 @@ const PRODUCTS = [
   { category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin" },
   { category: "Vegetables", price: "$1", stocked: true, name: "Peas" }
 ]
+
 
 
 function App() {
@@ -62,7 +62,7 @@ function App() {
   const authors = Array.from(
     new Set(haikus.map(haiku => haiku.author))
   )
-  
+
 
   const createHaiku = async () => {
     try {
@@ -160,6 +160,7 @@ function App() {
       })
       const data = await response.json()
       setHaikus(data)
+      console.log(data[0].author)
     } catch (error) {
       console.error(error)
     }
@@ -190,14 +191,9 @@ function App() {
             </Button>
           </Modal.Footer>
         </Modal>
-
-        
         <FilterableProductTable products={PRODUCTS} />
-
-
         <SearchBar
           filterText={filterText}
-
           onFilterTextChange={setFilterText}
         />
 
@@ -210,17 +206,13 @@ function App() {
           likeHaiku={likeHaiku} />
       </div>
       <div>
-
-            <div>
-              <p>Counter value: {counter}</p>
-              <button onClick={() => setCounter(counter + 1)}>
-                Increment
-              </button>
-            </div>
-
-
-
-
+        <div>
+          <p>Counter value: {counter}</p>
+          <button onClick={() => setCounter(counter + 1)}>
+            Increment
+          </button>
+        </div>
+        <PetAdoptionApp />
       </div>
     </div>
   )
