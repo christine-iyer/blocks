@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Results from "./Results";
 import fetchSearch from "./fetchSearch";
-const AUTHORS = ["chris", "claire", "laura", "leah", "paul", "other"];
+const AUTHORS = ["Chris", "Claire", "Laura", "Leah", "Paul"];
 
 const SearchParams = () => {
   const [requestParams, setRequestParams] = useState({

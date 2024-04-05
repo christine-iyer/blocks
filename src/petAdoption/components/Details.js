@@ -23,7 +23,7 @@ const Details = () => {
         <h1>{haiku.author}</h1>
         <h2>{`${haiku.title} — ${haiku.one} — ${haiku.two}, ${haiku.three}`}</h2>
         <button>Adopt {haiku.author}</button>
-        <p>{haiku.description}</p>
+      
       </div>
     </div>
   );

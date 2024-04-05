@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import fetchBreedList from "./fetchBreedList";
 
 export default function useBreedList(haiku) {
-  const results = useQuery(["authors", haiku], fetchBreedList);
+  const results = useQuery(["author", haiku], fetchBreedList);
 
-  return [results?.data?.authors ?? [], results.status];
+  return [results?.data?.author ?? [], results.status];
 }
