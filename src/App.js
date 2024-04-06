@@ -6,7 +6,7 @@ import CreateHaiku from './components/CreateHaiku';
 import HaikuList from './components/HaikuList';
 import SearchBar from './components/SearchBar';
 import FilterableProductTable from './components/FilterableProductTable';
-import PetAdoptionApp from './petAdoption/components/PetAdoptionApp'
+import HaikuApp from './petAdoption/components/HaikuApp'
 
 const PRODUCTS = [
   { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
@@ -212,7 +212,7 @@ function App() {
             Increment
           </button>
         </div>
-        <PetAdoptionApp />
+        <HaikuApp />
       </div>
     </div>
   )

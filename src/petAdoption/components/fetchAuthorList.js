@@ -1,4 +1,4 @@
-async function fetchBreedList({ queryKey }) {
+async function fetchAuthorList({ queryKey }) {
      const author = queryKey[1];
    
      if (!author) return [];
@@ -8,10 +8,10 @@ async function fetchBreedList({ queryKey }) {
      );
    
      if (!res.ok) {
-       throw new Error(`breeds ${author} fetch not ok`);
+       throw new Error(`author ${author} fetch not ok`);
      }
    
      return res.json();
    }
    
-   export default fetchBreedList;
+   export default fetchAuthorList;

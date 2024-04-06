@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import fetchPet from "./fetchPet";
+import fetchHaiku from "./fetchHaiku";
 
 const Details = () => {
   const { _id } = useParams();
-  const results = useQuery(["details", _id], fetchPet);
+  const results = useQuery(["details", _id], fetchHaiku);
 
   if (results.isLoading) {
     return (
@@ -21,7 +21,7 @@ const Details = () => {
     <div className="details">
       <div>
         <h1>{haiku.author}</h1>
-        <h2>{`${haiku.title} — ${haiku.one} — ${haiku.two}, ${haiku.three}`}</h2>
+        <h2>{`${haiku.title} — ${haiku.one} — ${haiku.two} ${haiku.three}`}</h2>
         <button>Adopt {haiku.author}</button>
       
       </div>

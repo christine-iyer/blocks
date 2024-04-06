@@ -1,4 +1,4 @@
-const fetchPet = async ({ queryKey }) => {
+const fetchHaiku = async ({ queryKey }) => {
      const _id = queryKey[1];
      const apiRes = await fetch(`/api/haikus?id=${_id}`);
    
@@ -7,6 +7,7 @@ const fetchPet = async ({ queryKey }) => {
      }
    
      return apiRes.json();
+    
    };
    
-   export default fetchPet;
+   export default fetchHaiku;

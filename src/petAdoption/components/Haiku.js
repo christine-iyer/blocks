@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
-const Pet = (props) => {
+const Haiku = (props) => {
   const { author, one, two, three, title, color,_id } = props;
 
   
   return (
-    <Link to={`/details/${_id}`} className="pet">
+    <Link to={`/details/${_id}`} className="haiku">
       <div className="image-container" style={{display:'grid', gridTemplateColumns: "1fr 1fr 1fr", backgroundColor: color}}>
      
       </div>
@@ -18,4 +18,4 @@ const Pet = (props) => {
   );
 };
 
-export default Pet;
+export default Haiku ;

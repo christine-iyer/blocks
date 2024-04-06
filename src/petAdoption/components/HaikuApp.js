@@ -13,13 +13,13 @@ const queryClient = new QueryClient({
     }
   }
 })
-function PetAdoptionApp() {
+function HaikuApp() {
   return (
     <div>
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>
           <header>
-            <Link to="/">Adopt Me!</Link>
+            <Link to="/">Read Me!</Link>
           </header>
           <Routes>
             <Route path="/details/:id" element={<Details />} />
@@ -30,4 +30,4 @@ function PetAdoptionApp() {
     </div>
   );
 }
-export default PetAdoptionApp;
+export default HaikuApp;
