@@ -1,6 +1,6 @@
 # Notes 2/27/2024
 
-![](./reactdnd.png)
+![](./src/photos/reactdnd.png)
 
 # Notes 3/6/2024
 

@@ -1,20 +1,11 @@
 import Haiku from './Haiku'
-import AuthorFilter from './AuthorFilter'
-
-import { useRef, useState } from'react'
-import styles from './HaikuList.module.scss'
-
-
-
 
 export default function HaikuList ({
   haikus,
   updateHaiku,
   deleteHaiku,
   likeHaiku, 
-  commentHaiku, 
-  filteredHaikus,
-  filterbyAuthor
+  commentHaiku
 }) {
   return (
     <div>

@@ -4,28 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Modal, Button } from 'react-bootstrap';
 import CreateHaiku from './components/CreateHaiku';
 import HaikuList from './components/HaikuList';
-import SearchBar from './components/SearchBar';
-import FilterableProductTable from './components/FilterableProductTable';
-import HaikuApp from './petAdoption/components/HaikuApp'
 
-const PRODUCTS = [
-  { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
-  { category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit" },
-  { category: "Fruits", price: "$2", stocked: false, name: "Passionfruit" },
-  { category: "Vegetables", price: "$2", stocked: true, name: "Spinach" },
-  { category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin" },
-  { category: "Vegetables", price: "$1", stocked: true, name: "Peas" }
-]
 
 
 
 function App() {
-  const [counter, setCounter] = useState(0)
-  useEffect(() => {
-    document.title = 'CounterWhat: ${count}';
-  })
-
-  const [filterText, setFilterText] = useState('');
   const [haiku, setHaiku] = useState({
     author: '',
     one: '',
@@ -50,19 +33,9 @@ function App() {
   const handleShowD = () => setShowAD(true);
 
 
-  const [filteredHaikus, setFilteredHaikus] = useState(haikus)
 
-  const filterByAuthor = author => {
-    setFilteredHaikus(
-      haikus.filter(haiku => haiku.author === author)
-    )
-  }
 
-  // Using Set to filter unique values
-  const authors = Array.from(
-    new Set(haikus.map(haiku => haiku.author))
-  )
-
+  
 
   const createHaiku = async () => {
     try {
@@ -191,28 +164,17 @@ function App() {
             </Button>
           </Modal.Footer>
         </Modal>
-        <FilterableProductTable products={PRODUCTS} />
-        <SearchBar
-          filterText={filterText}
-          onFilterTextChange={setFilterText}
-        />
+        
+  
 
         <HaikuList
-          filterText={filterText}
-          setFilterText
           haikus={haikus}
           deleteHaiku={deleteHaiku}
           updateHaiku={updateHaiku}
           likeHaiku={likeHaiku} />
       </div>
       <div>
-        <div>
-          <p>Counter value: {counter}</p>
-          <button onClick={() => setCounter(counter + 1)}>
-            Increment
-          </button>
-        </div>
-        <HaikuApp />
+
       </div>
     </div>
   )
