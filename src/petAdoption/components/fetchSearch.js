@@ -8,6 +8,7 @@ async function fetchSearch({ queryKey }) {
        throw new Error(`pet search not okay: ${author}`);
    
      return res.json();
+     console.log(res)
    }
    
    export default fetchSearch;

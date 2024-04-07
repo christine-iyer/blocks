@@ -4,7 +4,7 @@ import Results from "./Results";
 import fetchSearch from "./fetchSearch";
 const AUTHORS = ["Chris", "Claire", "Laura", "Leah", "Paul"];
 
-const SearchParams = () => {
+const SearchParams = ({foundHaikus}) => {
   const [requestParams, setRequestParams] = useState({
 
     author: ""
@@ -14,6 +14,7 @@ const SearchParams = () => {
 
   const results = useQuery(["search", requestParams], fetchSearch);
   const haikus = results?.data?.haikus ?? [];
+  
 
   return (
     <div className="search-params">
@@ -30,7 +31,7 @@ const SearchParams = () => {
       >
         
         <label htmlFor="author">
-          Animal
+          Author
           <select
             id="author"
             name="author"
@@ -54,7 +55,8 @@ const SearchParams = () => {
 
         <button>Submit</button>
       </form>
-      <Results haikus={haikus} />
+      <Results haikus={haikus} 
+      author={author}/>
     </div>
   );
 };

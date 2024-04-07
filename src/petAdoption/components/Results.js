@@ -9,14 +9,12 @@ const Results = ({ haikus }) => {
         haikus.map((haiku) => {
           return (
             <Haiku
-              key={haiku._id}
+              key={haiku.id}
               author={haiku.author}
               one={haiku.one}
               two={haiku.two}
               three={haiku.three}
-              title={haiku.title}
-              id={haiku._id}
-            />
+              title={haiku.title}            />
           );
         })
       )}

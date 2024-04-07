@@ -4,7 +4,7 @@ async function fetchAuthorList({ queryKey }) {
      if (!author) return [];
    
      const res = await fetch(
-       `apis/haikus?author=${author}`
+       `api/haikus?author=${author}`
      );
    
      if (!res.ok) {
