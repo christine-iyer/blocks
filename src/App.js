@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Modal, Button } from 'react-bootstrap';
 import CreateHaiku from './components/CreateHaiku';
 import HaikuList from './components/HaikuList';
-
+import Buttons from './components/Buttons';
 
 
 
@@ -20,6 +20,17 @@ function App() {
     comment: ''
   })
   const [haikus, setHaikus] = useState([])
+  const [item, setItem] = useState(haikus);
+
+  const menuItems = [...new Set(haikus.map((Val) => Val.author))];
+
+  const filterItem = (curcat) => {
+    const newItem = haiku.filter((newVal) => {
+      return newVal.author === curcat;
+    });
+    setItem(newItem);
+  };
+ 
   const [foundHaikus, setFoundHaikus] = useState(null)
 
   const handleChange = (event) => {
@@ -165,7 +176,11 @@ function App() {
           </Modal.Footer>
         </Modal>
         
-  
+        <Buttons
+            filterItem={filterItem}
+            setItem={setItem}
+            menuItems={menuItems}
+          />
 
         <HaikuList
           haikus={haikus}
