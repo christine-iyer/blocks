@@ -1,23 +1,31 @@
 import React from "react";
+import setClass from '../utilities/category-class'
+import styles from './HaikuList.module.scss'
 
-const Card = ({ item }) => {
+
+const Card = ({ item,
+  updateHaiku,
+  deleteHaiku,
+  likeHaiku }) => {
+    
   return (
     <>
-      <div className="container-fluid">
-        <div className="row justify-content-center">
+      <div   style={{  padding: '1%', margin: '1%', textAlign: 'left', boxShadow: '12px 12px 12px 11px item.color'}}>
+        <div>
           {item?.map((Val) => {
             return (
               <div
-                className="col-md-4 col-sm-6 card my-3 py-3 border-0"
-                key={Val.id}
+              className={setClass(item,styles)}
+                key={Val._id}
               >
-                <div className="card-img-top text-center">
+                <h1 className="card-img-top text-center">
                  
-                </div>
+                </h1>
                 <div className="card-body">
                   <div className="card-title fw-bold fs-4">
+
                     {Val.author} &nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;
-                    {Val.one}
+                    {Val.one}{Val.two}{Val.three}
                   </div>
                   <div className="card-text">{Val.two}</div>
                 </div>

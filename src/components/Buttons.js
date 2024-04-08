@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Buttons({ filterItem, setItem, menuItems, haikus }) {
+export default function Buttons({ filterItem, setItem, menuItems,item }) {
   return (
     <>
       <div className="d-flex justify-content-center">
@@ -17,7 +17,7 @@ export default function Buttons({ filterItem, setItem, menuItems, haikus }) {
         })}
         <button
           className="btn-dark text-white p-1 px-3 mx-5 fw-bold btn"
-          onClick={() => setItem(haikus)}
+          onClick={() => setItem(item)}
         >
           All
         </button>

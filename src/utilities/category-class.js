@@ -1,15 +1,18 @@
-export default function setClass(image, styles){
-     if(image.author === 'Laura'){
+export default function setClass(div, styles){
+     if(div.author === 'Laura'){
           return styles.laura
      }
-     if(image.author === 'Paul'){
+     if(div.author === 'Paul'){
           return styles.paul
      }
-     if(image.author === 'Leah'){
+     if(div.author === 'Leah'){
           return styles.leah
      }
-     if(image.author === 'Chris'){
+     if(div.author === 'Chris'){
           return styles.chris
+     }
+     if(div.author === 'Other'){
+          return styles.other
      }
      
 }
