@@ -5,7 +5,7 @@ const Card = ({ item }) => {
     <>
       <div className="container-fluid">
         <div className="row justify-content-center">
-          {item.map((Val) => {
+          {item?.map((Val) => {
             return (
               <div
                 className="col-md-4 col-sm-6 card my-3 py-3 border-0"

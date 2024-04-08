@@ -22,11 +22,12 @@ function App() {
   })
   const [haikus, setHaikus] = useState([])
   const [item, setItem] = useState(haikus);
+  
 
   const menuItems = [...new Set(haikus?.map((Val) => Val.author))];
 
   const filterItem = (curcat) => {
-    const newItem = haiku.filter((newVal) => {
+    const newItem = haikus?.filter((newVal) => {
       return newVal.author === curcat;
     });
     setItem(newItem);
