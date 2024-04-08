@@ -181,10 +181,9 @@ function App() {
         <Buttons
             filterItem={filterItem}
             setItem={setItem}
-            setHaikus={setHaikus}
             menuItems={menuItems}
           />
-               <Card item={item} haikus={haikus} />
+               <Card item={item}  haikus={haikus}/>
 
         <HaikuList
           haikus={haikus}
