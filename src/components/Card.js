@@ -27,7 +27,7 @@ const Card = ({ item,
                     {Val.author} &nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;
                     {Val.one}{Val.two}{Val.three}
                   </div>
-                  <div className="card-text">{Val.two}</div>
+                 
                 </div>
               </div>
             );
