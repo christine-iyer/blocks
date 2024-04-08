@@ -83,9 +83,9 @@ export default function Haiku({
           }}
           defaultValue={haiku.three}
         />
-        <span><p onClick={() => setShowA(!showA)}>by {haiku.author}</p> <select
+          <span><p onClick={() => setShowA(!showA)}>by {haiku.author}</p> <input
           ref={inputRefA}
-          type='select'
+          type='text'
           style={{ display: showA ? 'block' : 'none' }}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
@@ -95,13 +95,7 @@ export default function Haiku({
             }
           }}
           defaultValue={haiku.author}
-        >
-           <option value="chris" name="chris">chris</option>
-              <option value="claire" name="claire">claire</option>
-              <option value="laura" name="laura">laura</option>
-              <option value="leah" name="leah">leah</option>
-              <option value="paul" name="paul">paul</option>
-        </select>
+        />
        
         <p style={{
           defaultValue: "#E45845",
@@ -109,7 +103,7 @@ export default function Haiku({
           display: "flex", alignItems: "center",
           position: "relative", zIndex: 1
         }} > {new Date(haiku.createdAt).toLocaleDateString()}  </p>
-        </span>
+    </span>
         <button style={{ 'fontStyle': 'italic' , 'width':'30%', 'display':'inlineBlock', border:'none', opacity:'50%'}} className="btn btn-outline-warning" onClick={() => deleteHaiku(haiku._id)}>X</button>
 
         <button style={{ 'fontStyle': 'italic' , 'width':'30%', 'display':'inlineBlock', border:'none', opacity:'50%'}} className="btn btn-outline-warning" onClick={() => likeHaiku(haiku._id)}>🧡 {haiku.like}</button>

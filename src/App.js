@@ -5,6 +5,7 @@ import { Container, Modal, Button } from 'react-bootstrap';
 import CreateHaiku from './components/CreateHaiku';
 import HaikuList from './components/HaikuList';
 import Buttons from './components/Buttons';
+import Card from './components/Card';
 
 
 
@@ -22,7 +23,7 @@ function App() {
   const [haikus, setHaikus] = useState([])
   const [item, setItem] = useState(haikus);
 
-  const menuItems = [...new Set(haikus.map((Val) => Val.author))];
+  const menuItems = [...new Set(haikus?.map((Val) => Val.author))];
 
   const filterItem = (curcat) => {
     const newItem = haiku.filter((newVal) => {
@@ -182,6 +183,7 @@ function App() {
             setHaikus={setHaikus}
             menuItems={menuItems}
           />
+               <Card item={item} />
 
         <HaikuList
           haikus={haikus}
