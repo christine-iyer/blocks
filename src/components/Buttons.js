@@ -17,7 +17,8 @@ export default function Buttons({ filterItem, setItem, menuItems,item }) {
         })}
         <button
           className="btn-dark text-white p-1 px-3 mx-5 fw-bold btn"
-          onClick={() => setItem(item)}
+          
+          onClick={() => setItem(menuItems)}
         >
           All
         </button>

@@ -184,7 +184,7 @@ function App() {
             setHaikus={setHaikus}
             menuItems={menuItems}
           />
-               <Card item={item} />
+               <Card item={item} haikus={haikus} />
 
         <HaikuList
           haikus={haikus}
