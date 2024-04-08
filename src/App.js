@@ -179,11 +179,13 @@ function App() {
         <Buttons
             filterItem={filterItem}
             setItem={setItem}
+            setHaikus={setHaikus}
             menuItems={menuItems}
           />
 
         <HaikuList
           haikus={haikus}
+          filterItem={filterItem}
           deleteHaiku={deleteHaiku}
           updateHaiku={updateHaiku}
           likeHaiku={likeHaiku} />
