@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Modal, Button } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 import CreateHaiku from './components/CreateHaiku';
-import HaikuList from './components/HaikuList';
 import Buttons from './components/Buttons';
-import Card from './components/Card';
+import HaikuCard from './components/HaikuCard';
 
 
 
@@ -184,14 +183,19 @@ function App() {
             menuItems={menuItems}
             haikus={haikus}
           />
-               <Card item={item}  />
+               <HaikuCard item={item}
+               haikus={haikus}
+          filterItem={filterItem}
+          deleteHaiku={deleteHaiku}
+          updateHaiku={updateHaiku}
+          likeHaiku={likeHaiku}  />
 
-        <HaikuList
+        {/* <HaikuList
           haikus={haikus}
           filterItem={filterItem}
           deleteHaiku={deleteHaiku}
           updateHaiku={updateHaiku}
-          likeHaiku={likeHaiku} />
+          likeHaiku={likeHaiku} /> */}
       </div>
       <div>
 
