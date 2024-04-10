@@ -8,6 +8,7 @@ import HaikuCard from './components/HaikuCard';
 
 
 
+
 function App() {
   const [haiku, setHaiku] = useState({
     author: '',
@@ -178,14 +179,17 @@ function App() {
         </Modal>
         
         <Buttons
+        haikus={haikus}
+        item={item}
             filterItem={filterItem}
             setItem={setItem}
             menuItems={menuItems}
-            haikus={haikus}
+            
           />
-               <HaikuCard item={item}
+               <HaikuCard 
                haikus={haikus}
-          filterItem={filterItem}
+               item={item}
+           filterItem={filterItem}
           deleteHaiku={deleteHaiku}
           updateHaiku={updateHaiku}
           likeHaiku={likeHaiku}  />

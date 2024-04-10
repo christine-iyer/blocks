@@ -24,8 +24,8 @@ const HaikuCard = ({ item,
     
   return (
     <>
-      <div   style={{  padding: '1%', margin: '1%', textAlign: 'left', boxShadow: '12px 12px 12px 11px item.color'}}>
-        <div>
+      <div   >
+        <div style={{  padding: '1%', margin: '1%', textAlign: 'left', boxShadow: '12px 12px 12px 11px item.color', 'display': 'flex',flexDirection: 'row',flexWrap: 'wrap'}}>
           {item?.map((Val) => {
             return (
               <Card key={Val._id}className={setClass(Val,styles)} style={{ width: '20%', height: '10%', padding: '1%', margin: '1%', textAlign: 'left', boxShadow: '12px 12px 12px 11px Val.color'}}>
