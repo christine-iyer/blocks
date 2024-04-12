@@ -6,7 +6,7 @@ import styles from './HaikuList.module.scss'
 
 
 
-const HaikuCard = ({ item,
+const HaikuCard = ({ item,haikus,
   updateHaiku,
   deleteHaiku,
   likeHaiku }) => {
@@ -29,13 +29,14 @@ const HaikuCard = ({ item,
           {item?.map((Val) => {
             return (
               <Card key={Val._id}className={setClass(Val,styles)} style={{ width: '20%', height: '10%', padding: '1%', margin: '1%', textAlign: 'left', boxShadow: '12px 12px 12px 11px Val.color'}}>
-        <Card.Title onClick={() => setShowE(!showE)}>{Val.title}</Card.Title>
+        <Card.Title onClick={() => setShowE(!showE)}>Title: {Val.title}</Card.Title>
         <input
           ref={inputRefE}
           style={{ display: showE ? 'block' : 'none' }}
           type='text'
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
+             
               const title = inputRefE.current.value
               updateHaiku(Val._id, { title: title });
               setShowE(false)

@@ -5,6 +5,7 @@ import { Modal, Button } from 'react-bootstrap';
 import CreateHaiku from './components/CreateHaiku';
 import Buttons from './components/Buttons';
 import HaikuCard from './components/HaikuCard';
+import HaikuList from './components/HaikuList';
 
 
 
@@ -22,7 +23,7 @@ function App() {
   })
   const [haikus, setHaikus] = useState([])
   const [item, setItem] = useState(haikus);
-  
+
 
   const menuItems = [...new Set(haikus?.map((Val) => Val.author))];
 
@@ -32,7 +33,7 @@ function App() {
     });
     setItem(newItem);
   };
- 
+
   const [foundHaikus, setFoundHaikus] = useState(null)
 
   const handleChange = (event) => {
@@ -48,7 +49,7 @@ function App() {
 
 
 
-  
+
 
   const createHaiku = async () => {
     try {
@@ -146,7 +147,6 @@ function App() {
       })
       const data = await response.json()
       setHaikus(data)
-      console.log(data[7].author)
     } catch (error) {
       console.error(error)
     }
@@ -177,29 +177,34 @@ function App() {
             </Button>
           </Modal.Footer>
         </Modal>
-        
-        <Buttons
-        haikus={haikus}
-        item={item}
-            filterItem={filterItem}
-            setItem={setItem}
-            menuItems={menuItems}
-            
-          />
-               <HaikuCard 
-               haikus={haikus}
-               item={item}
-           filterItem={filterItem}
-          deleteHaiku={deleteHaiku}
-          updateHaiku={updateHaiku}
-          likeHaiku={likeHaiku}  />
-
-        {/* <HaikuList
+        <h1>Just a List, no filters</h1>
+        <HaikuList
           haikus={haikus}
           filterItem={filterItem}
           deleteHaiku={deleteHaiku}
           updateHaiku={updateHaiku}
-          likeHaiku={likeHaiku} /> */}
+          likeHaiku={likeHaiku} />
+
+        <h1>Filtable List</h1>
+
+        <Buttons
+          haikus={haikus}
+          item={item}
+          filterItem={filterItem}
+          setItem={setItem}
+          menuItems={menuItems}
+        />
+        <HaikuCard
+          haikus={haikus}
+          item={item}
+          filterItem={filterItem}
+          deleteHaiku={deleteHaiku}
+          updateHaiku={updateHaiku}
+          likeHaiku={likeHaiku} />
+
+
+
+        
       </div>
       <div>
 
