@@ -29,7 +29,7 @@ const HaikuCard = ({ item,haikus,
           {item?.map((Val) => {
             return (
               <Card key={Val._id}className={setClass(Val,styles)} style={{ width: '20%', height: '10%', padding: '1%', margin: '1%', textAlign: 'left', boxShadow: '12px 12px 12px 11px Val.color'}}>
-        <Card.Title onClick={() => setShowE(!showE)}>Title: {Val.title}</Card.Title>
+        {/* <Card.Title onClick={() => setShowE(!showE)}>Title: {Val.title}</Card.Title>
         <input
           ref={inputRefE}
           style={{ display: showE ? 'block' : 'none' }}
@@ -43,7 +43,7 @@ const HaikuCard = ({ item,haikus,
             }
           }}
           defaultValue={Val.title}
-        />
+        /> */}
 
         <Card.Text className="text" onClick={() => setShowB(!showB)}>{Val.one}</Card.Text>
         <input
@@ -60,7 +60,7 @@ const HaikuCard = ({ item,haikus,
           defaultValue={Val.one}
         />
         <Card.Text className="text" onClick={() => setShowC(!showC)}>{Val.two}</Card.Text>
-        <input
+        {/* <input
           ref={inputRefC}
           style={{ display: showC ? 'block' : 'none' }}
           type='text'
@@ -72,9 +72,9 @@ const HaikuCard = ({ item,haikus,
             }
           }}
           defaultValue={Val.two}
-        />
+        /> */}
         <Card.Text className="texty" onClick={() => setShowD(!showD)}>{Val.three}</Card.Text>
-        <input
+        {/* <input
           ref={inputRefD}
           style={{ display: showD ? 'block' : 'none' }}
           type='text'
@@ -86,7 +86,7 @@ const HaikuCard = ({ item,haikus,
             }
           }}
           defaultValue={Val.three}
-        />
+        /> */}
           <span><p onClick={() => setShowA(!showA)}>by {Val.author}</p> <input
           ref={inputRefA}
           type='text'
