@@ -1,9 +1,9 @@
 // our string
 const _ = require("lodash");
 
-let A = "the red dog goes fast ";
-let B = "then the dog slows, then speeds up. ";
-let C = "Wow. That dog can go";
+let A = "While my successor ";
+let B = "grovels as Trump's handmaiden  ";
+let C = "here on Long Island.";
 
 // splits every letter in string into an item in our array
 // insert a space before last word in line one, and the last word on line 2.
@@ -36,4 +36,4 @@ function result(text) {
 // console.log(result(newArray));
 
 let gfg = _.sampleSize(result(newArray), 2);
-console.log(gfg[0], gfg[1]);
+console.log(_.upperFirst(gfg[0]), _.upperFirst(gfg[1]));
