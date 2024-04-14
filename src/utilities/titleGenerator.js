@@ -1,6 +1,14 @@
-let newArray = string.split('');
+// our string
+const _ = require("lodash");
+let A = "the red dog goes fast";
+let B = "then the dog slows, then speeds up.";
+let C = "Wow. That dog can go";
 
-var array1 = ["Vijendra", "Singh"];
-var array2 = ["Singh", "Shakya"];
+// splits every letter in string into an item in our array
+// insert a space before last word in line one, and the last word on line 2.
 
-console.log(array1.concat(array2));
+let newArray = A.concat(B).concat(C);
+
+console.log(newArray);
+let gfg = _.sampleSize(newArray, 3);
+console.log(gfg);

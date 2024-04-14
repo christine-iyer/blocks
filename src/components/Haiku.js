@@ -13,6 +13,7 @@ export default function Haiku({
   likeHaiku,
 }) {
 
+
   const [showA, setShowA] = useState(false)
   const [showB, setShowB] = useState(false)
   const [showC, setShowC] = useState(false)
@@ -107,7 +108,7 @@ export default function Haiku({
         <button style={{ 'fontStyle': 'italic' , 'width':'30%', 'display':'inlineBlock', border:'none', opacity:'50%'}} className="btn btn-outline-warning" onClick={() => deleteHaiku(haiku._id)}>X</button>
 
         <button style={{ 'fontStyle': 'italic' , 'width':'30%', 'display':'inlineBlock', border:'none', opacity:'50%'}} className="btn btn-outline-warning" onClick={() => likeHaiku(haiku._id)}>🧡 {haiku.like}</button>
-       
+
       </Card>
     </>
   )
