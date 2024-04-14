@@ -5,8 +5,8 @@ const options = {
   method: 'POST',
   headers: {
     'content-type': 'application/json',
-    'X-RapidAPI-Key': process.env.Key,
-    'X-RapidAPI-Host': process.env.Host
+    'X-RapidAPI-Key': '5e4d0eeb5bmsh1f0574004d6dfb6p160e9fjsnd9a3ae03ad63',
+    'X-RapidAPI-Host': 'text-analysis12.p.rapidapi.com'
   },
   body: {
     language: 'english',
