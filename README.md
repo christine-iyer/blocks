@@ -17,6 +17,7 @@ I'm thinking about putting the drag and drop into this app.
 
 Features
 
+1. Run string.split brfore concatonating
 1. Authentication. Add the color selector to the authentication.
 1. Create a Haiku
 1. Filter haikus by author.
