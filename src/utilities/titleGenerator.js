@@ -1,7 +1,8 @@
 // our string
 const _ = require("lodash");
-let A = "the red dog goes fast";
-let B = "then the dog slows, then speeds up.";
+
+let A = "the red dog goes fast ";
+let B = "then the dog slows, then speeds up. ";
 let C = "Wow. That dog can go";
 
 // splits every letter in string into an item in our array
@@ -9,6 +10,30 @@ let C = "Wow. That dog can go";
 
 let newArray = A.concat(B).concat(C);
 
-console.log(newArray);
-let gfg = _.sampleSize(newArray, 3);
-console.log(gfg);
+// console.log(newArray.trim().split(""));
+// var array1 = ["the red dog goes fast"];
+// array1.split();
+// var array2 = ["then the dog slows, then speeds up."];
+// var array3 = ["Wow. That dog can go"];
+
+// myArray = array1.concat(array2, array3);
+// console.log(myArray[1]);
+// newArray = myArray.split('');
+
+// console.log(newArray);
+
+// console.log(newArray);
+// console.log(typeof newArray);
+// let gfg = _.sampleSize(newArray, 7);
+// // console.log([Math.floor(Math.random() * newArray.length)]);
+// console.log(gfg);
+const message = A;
+// let result = message.split(" ");
+function result(text) {
+  return text.split(" ");
+}
+
+// console.log(result(newArray));
+
+let gfg = _.sampleSize(result(newArray), 2);
+console.log(gfg[0], gfg[1]);
