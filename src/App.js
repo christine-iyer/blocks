@@ -3,13 +3,10 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button } from 'react-bootstrap';
 import CreateHaiku from './components/CreateHaiku';
-import Buttons from './components/Buttons';
-import HaikuCard from './components/HaikuCard';
+// import Buttons from './components/Buttons';
+// import HaikuCard from './components/HaikuCard';
 import HaikuList from './components/HaikuList';
-const axios = require('axios')
-
-
-
+// const axios = require('axios')
 function App() {
   const [haiku, setHaiku] = useState({
     author: '',
@@ -22,21 +19,18 @@ function App() {
     comment: ''
   })
   const [haikus, setHaikus] = useState([])
-  const [item, setItem] = useState(haikus);
-
-
-  const menuItems = [...new Set(haikus?.map((Val) => Val.author))];
-
-  const filterItem = (curcat) => {
-    const newItem = haikus?.filter((newVal) => {
-      return newVal.author === curcat;
-    });
-    setItem(newItem);
-  };
-
   const [foundHaikus, setFoundHaikus] = useState(null)
-  const [sentimentScore, setSentimentScore] = useState(0)
-  const [errorMessage, setErrorMessage] = useState("");
+  // const [item, setItem] = useState(haikus);
+// const menuItems = [...new Set(haikus?.map((Val) => Val.author))];
+// const filterItem = (curcat) => {
+  //   const newItem = haikus?.filter((newVal) => {
+  //     return newVal.author === curcat;
+  //   });
+  //   setItem(newItem);
+  // };
+
+// const [sentimentScore, setSentimentScore] = useState(0)
+  // const [errorMessage, setErrorMessage] = useState("");
 
 
 
@@ -49,11 +43,6 @@ function App() {
   const handleShow = () => setShow(true);
   const handleShowA = () => setShowAD(false);
   const handleShowD = () => setShowAD(true);
-
-
-
-
-
 
   const createHaiku = async () => {
     try {
@@ -159,32 +148,32 @@ function App() {
     listHaikus()
   }, [foundHaikus])
 
-  const getSentimentScore = async () => {
-    const url = 'https://text-analysis12.p.rapidapi.com/sentiment-analysis/api/v1.1';
-    const options = {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        'X-RapidAPI-Key': '5e4d0eeb5bmsh1f0574004d6dfb6p160e9fjsnd9a3ae03ad63',
-        'X-RapidAPI-Host': 'text-analysis12.p.rapidapi.com'
-      },
-      body: {
-        language: 'english',
-        text: 'Steam dances above, dark elixir soothes the soul,morning\'s gift of life.'
-      }
-    };
+  // const getSentimentScore = async () => {
+  //   const url = 'https://text-analysis12.p.rapidapi.com/sentiment-analysis/api/v1.1';
+  //   const options = {
+  //     method: 'POST',
+  //     headers: {
+  //       'content-type': 'application/json',
+  //       'X-RapidAPI-Key': '5e4d0eeb5bmsh1f0574004d6dfb6p160e9fjsnd9a3ae03ad63',
+  //       'X-RapidAPI-Host': 'text-analysis12.p.rapidapi.com'
+  //     },
+  //     body: {
+  //       language: 'english',
+  //       text: 'Steam dances above, dark elixir soothes the soul,morning\'s gift of life.'
+  //     }
+  //   };
     
-    try {
-      const response = await fetch(url, options);
-      const result = await response.text();
-      console.log(result);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  useEffect(() => {
-    getSentimentScore()
-  }, [])
+  //   try {
+  //     const response = await fetch(url, options);
+  //     const result = await response.text();
+  //     console.log(result);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
+  // useEffect(() => {
+  //   getSentimentScore()
+  // }, [])
 
 
 
@@ -212,13 +201,13 @@ function App() {
         <h1>Just a List, no filters</h1>
         <HaikuList
           haikus={haikus}
-          filterItem={filterItem}
           deleteHaiku={deleteHaiku}
           updateHaiku={updateHaiku}
           likeHaiku={likeHaiku} />
 
-        <h1>Filtable List</h1>
+       
 
+        {/*  <h1>Filtable List</h1>
         <Buttons
           haikus={haikus}
           item={item}
@@ -232,7 +221,7 @@ function App() {
           filterItem={filterItem}
           deleteHaiku={deleteHaiku}
           updateHaiku={updateHaiku}
-          likeHaiku={likeHaiku} />
+          likeHaiku={likeHaiku} /> */}
 
 
 

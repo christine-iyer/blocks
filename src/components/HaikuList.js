@@ -1,4 +1,5 @@
 import Haiku from './Haiku'
+import '../App.css'
 
 export default function HaikuList ({
   haikus,
@@ -8,7 +9,7 @@ export default function HaikuList ({
   commentHaiku
 }) {
   return (
-    <div>
+    <div styles={{position: 'absolute', top: 0, bottom: 0, left: 0, right: 0}}>
 
     <ul  style={{ margin: '1rem', 'display': 'flex',flexDirection: 'row',flexWrap: 'wrap'}}>
       {
