@@ -6,6 +6,7 @@ import CreateHaiku from './components/CreateHaiku';
 // import Buttons from './components/Buttons';
 // import HaikuCard from './components/HaikuCard';
 import HaikuList from './components/HaikuList';
+import Logo from './components/Logo';
 // const axios = require('axios')
 function App() {
   const [haiku, setHaiku] = useState({
@@ -184,7 +185,8 @@ function App() {
   return (
     <div className="App">
       <div>
-        <button variant="primary" onClick={handleShow}>Peek-A-Boo Haiku</button>
+        <button  onClick={handleShow}><Logo />     
+</button>
         <Modal show={show} onHide={handleClose}>
           <Modal.Body>
             <CreateHaiku style={{ height: '50%', margin: "5%", width: '80%' }}
@@ -198,7 +200,7 @@ function App() {
             </Button>
           </Modal.Footer>
         </Modal>
-        <h1>Just a List, no filters</h1>
+        <h1>Me and You and Our Haikus</h1>
         <HaikuList
           haikus={haikus}
           deleteHaiku={deleteHaiku}
@@ -228,7 +230,13 @@ function App() {
         
       </div>
       <div>
+        <Logo />
+      {/* <svg  viewBox="0 0 841.9 595.3">
+        <g fill='none' stroke='#000' strokeWidth='2' transform='translate(180,0)'>
+          <path width='100' d="M0,0 C50,40 50,70 20,100,  L0,85 L-20,100 C-50,70 -50,40 0,0"/>
 
+        </g>
+      </svg> */}
       </div>
     </div>
   )
