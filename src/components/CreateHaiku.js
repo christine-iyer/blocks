@@ -7,6 +7,7 @@ export default function CreateHaiku({
   haiku,
   handleChange
 }) {
+  
   return (
     <>
       <h2>Create A Haiku</h2>
