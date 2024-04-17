@@ -7,6 +7,7 @@ import CreateHaiku from './components/CreateHaiku';
 // import HaikuCard from './components/HaikuCard';
 import HaikuList from './components/HaikuList';
 import Logo from './components/Logo';
+import Auth from './pages/AuthPage/AuthPage';
 // const axios = require('axios')
 function App() {
   const [haiku, setHaiku] = useState({
