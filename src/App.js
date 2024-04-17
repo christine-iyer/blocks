@@ -230,13 +230,14 @@ function App() {
         
       </div>
       <div>
-        <img src={Logo} />
-      {/* <svg  viewBox="0 0 841.9 595.3">
+     
+      <svg  viewBox="0 0 841.9 595.3">
         <g fill='none' stroke='#000' strokeWidth='2' transform='translate(180,0)'>
           <path width='100' d="M0,0 C50,40 50,70 20,100,  L0,85 L-20,100 C-50,70 -50,40 0,0"/>
 
         </g>
-      </svg> */}
+      </svg>
+
       </div>
     </div>
   )
