@@ -1,4 +1,5 @@
 # Notes 2/27/2024
+Added Jake as collaborator.
 
 ![](./src/photos/reactdnd.png)
 
