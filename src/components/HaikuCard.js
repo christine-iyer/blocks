@@ -6,7 +6,7 @@ import styles from './HaikuList.module.scss'
 
 
 
-const HaikuCard = ({ item,haikus,
+const HaikuCard = ({ item,
   updateHaiku,
   deleteHaiku,
   likeHaiku }) => {
