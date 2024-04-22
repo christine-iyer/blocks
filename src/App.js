@@ -3,8 +3,8 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button } from 'react-bootstrap';
 import CreateHaiku from './components/CreateHaiku';
-// import Buttons from './components/Buttons';
-// import HaikuCard from './components/HaikuCard';
+import Buttons from './components/Buttons';
+import HaikuCard from './components/HaikuCard';
 import HaikuList from './components/HaikuList';
 import Logo from './components/Logo';
 import Auth from './pages/AuthPage/AuthPage';
@@ -22,14 +22,14 @@ function App() {
   })
   const [haikus, setHaikus] = useState([])
   const [foundHaikus, setFoundHaikus] = useState(null)
-  // const [item, setItem] = useState(haikus);
-// const menuItems = [...new Set(haikus?.map((Val) => Val.author))];
-// const filterItem = (curcat) => {
-  //   const newItem = haikus?.filter((newVal) => {
-  //     return newVal.author === curcat;
-  //   });
-  //   setItem(newItem);
-  // };
+  const [item, setItem] = useState(haikus);
+const menuItems = [...new Set(haikus?.map((Val) => Val.author))];
+const filterItem = (curcat) => {
+    const newItem = haikus?.filter((newVal) => {
+      return newVal.author === curcat;
+    });
+    setItem(newItem);
+  };
 
 // const [sentimentScore, setSentimentScore] = useState(0)
   // const [errorMessage, setErrorMessage] = useState("");
@@ -201,16 +201,25 @@ function App() {
             </Button>
           </Modal.Footer>
         </Modal>
-        <h1>Me and You and Our Haikus</h1>
+        <h1>Filtable List</h1>
+        <Buttons
+          haikus={haikus}
+          item={item}
+          filterItem={filterItem}
+          setItem={setItem}
+          menuItems={menuItems}
+        />
         <HaikuList
           haikus={haikus}
+          item={item}
+          filterItem={filterItem}
           deleteHaiku={deleteHaiku}
           updateHaiku={updateHaiku}
           likeHaiku={likeHaiku} />
 
        
 
-        {/*  <h1>Filtable List</h1>
+         <h1>Filtable List #2</h1>
         <Buttons
           haikus={haikus}
           item={item}
@@ -224,7 +233,7 @@ function App() {
           filterItem={filterItem}
           deleteHaiku={deleteHaiku}
           updateHaiku={updateHaiku}
-          likeHaiku={likeHaiku} /> */}
+          likeHaiku={likeHaiku} />
 
 
 

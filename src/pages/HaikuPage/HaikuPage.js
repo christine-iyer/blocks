@@ -21,15 +21,16 @@ export default function HaikuPage() {
     comment: ''
   })
   const [haikus, setHaikus] = useState([])
+  
   const [foundHaikus, setFoundHaikus] = useState(null)
-  // const [item, setItem] = useState(haikus);
+//   const [item, setItem] = useState(haikus);
 // const menuItems = [...new Set(haikus?.map((Val) => Val.author))];
 // const filterItem = (curcat) => {
-  //   const newItem = haikus?.filter((newVal) => {
-  //     return newVal.author === curcat;
-  //   });
-  //   setItem(newItem);
-  // };
+//     const newItem = hasikus?.filter((newVal) => {
+//       return newVal.author === curcat;
+//     });
+//     setItem(newItem);
+//   };
 
 // const [sentimentScore, setSentimentScore] = useState(0)
   // const [errorMessage, setErrorMessage] = useState("");
