@@ -209,17 +209,14 @@ const filterItem = (curcat) => {
           setItem={setItem}
           menuItems={menuItems}
         />
-        <HaikuList
+        <HaikuCard
           haikus={haikus}
           item={item}
           filterItem={filterItem}
           deleteHaiku={deleteHaiku}
           updateHaiku={updateHaiku}
           likeHaiku={likeHaiku} />
-
-       
-
-         <h1>Filtable List #2</h1>
+{/* <h1>Filtable List #2</h1>
         <Buttons
           haikus={haikus}
           item={item}
@@ -234,7 +231,7 @@ const filterItem = (curcat) => {
           deleteHaiku={deleteHaiku}
           updateHaiku={updateHaiku}
           likeHaiku={likeHaiku} />
-
+ */}
 
 
         
